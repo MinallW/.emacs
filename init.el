@@ -62,7 +62,7 @@
      (shell . t))))
  '(package-selected-packages
    (quote
-    (lua-mode chess web-mode use-package ruby-test-mode ruby-electric rubocop robe powerline memoize impatient-mode gruvbox-theme ercn erc-hl-nicks emmet-mode company-web ace-window)))
+    (lua-mode web-mode use-package ruby-test-mode ruby-electric rubocop robe powerline memoize impatient-mode gruvbox-theme ercn erc-hl-nicks emmet-mode company-web ace-window)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
@@ -84,8 +84,6 @@
 		 ))
     (mapc load-it (directory-files dir nil "\\.el$"))))
 
-(let ((default-directory  "~/.emacs.d"))
-  (normal-top-level-add-subdirs-to-load-path))(require 'sublimity)
-(require 'sublimity-map) ;; experimental
-(require 'sublimity-attractive)
-(sublimity-mode 1)
+(require 'eaf)
+
+

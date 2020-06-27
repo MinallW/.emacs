@@ -1,14 +1,0 @@
-;; Emacs-W3 HTTP cookies file
-;; Automatically generated file!!! DO NOT EDIT!!!
-
-(setq url-cookie-storage
- '((".dataquest.io"
-  [url-cookie "__cfduid" "d277ad42f8b5afa39c7289058815f175c1582494344" "Tue, 24-Mar-20 21:45:44 GMT" "/" ".dataquest.io" nil]))
-)
-(setq url-cookie-secure-storage
- 'nil)
-
-;; Local Variables:
-;; version-control: never
-;; no-byte-compile: t
-;; End:
