@@ -45,14 +45,9 @@
  '(erc-modules
    (quote
     (autojoin button completion log notifications services sound stamp spelling hl-nicks ercn netsplit fill match track readonly networks ring noncommands irccontrols move-to-prompt menu list)))
- '(erc-nick "minall")
- '(erc-port 6667)
- '(erc-prompt-for-password nil)
- '(erc-server "irc.freenode.net")
  '(fringe-mode 0 nil (fringe))
  '(global-display-line-numbers-mode t)
  '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/.notes")))
  '(org-babel-load-languages
    (quote
     ((emacs-lisp . t)
