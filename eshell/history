@@ -1,1 +1,58 @@
 git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1
+rails s
+bundle
+bundle
+bundle
+git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1
+git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1git clone https://github.com/manateelazycat/emacs-application-framework.git --depth=1
+bundle
+bundle
+rails s
+yarn install --check-files
+bundle
+yarn install --check-files
+rails s
+bundle --without testing 
+rails s
+cd ..
+rails new javApp
+yarn add --dev webpack-dev-sever 
+rails s
+cd javApp/
+rails s
+cd ..
+ls
+cd udemy-rails-alpha-blog/
+bundle
+gem install bundler:1.11.2
+cd ..
+ls
+cd javApp/
+rails s
+bundle
+rails s
+rails generate migration Users
+rails db migrate
+rails db migrate
+rails generate migration CreateUsers
+rails db migrate
+rails db migrate
+rails s
+rails generate migration CreateUsers username:string email:string 
+rails db migrate
+rails dbconsole
+rails migrate
+man rails db
+cd ../../..
+cd javApp/
+ls
+rails db
+rails db --help
+rails s
+rails db:migrate
+rails generate migrate AddPassworddigesttousers
+rails generate migration AddPassworddigesttousers
+rails db:migrate
+rails s
+      create    db/migrate/20200701215224_add_passworddigesttousers.rb
+rails console

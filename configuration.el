@@ -8,7 +8,7 @@
 
 (use-package ace-window
   :ensure t
-  :bind ("M-o" . ace-window))
+  :bind ("C-x o" . ace-window))
 
 
 (use-package powerline
@@ -90,7 +90,7 @@
 		    ;; Also handle undocumented (<active> <inactive>) form.
 		    ((numberp (cadr alpha)) (cadr alpha)))
 	      100)
-	 '(95 . 95) '(100 . 100)))))
+	 '(90 . 90) '(100 . 100)))))
 (global-set-key (kbd "C-c t") 'toggle-transparency)
 
 (use-package ruby-electric 
@@ -98,4 +98,7 @@
 :hook (ruby-mode . ruby-electric-mode))
 
 (use-package ruby-mode
+:ensure t)
+
+(use-package rvm
 :ensure t)
