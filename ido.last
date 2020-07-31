@@ -1,0 +1,168 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/etc/systemd/" . "network/")
+ ("/etc/" . "systemd/")
+ ("/home/minall/.emacs.d/elpa/" . "emacs-wallpaper/")
+ ("/home/minall/Pictures/" . "wallpaper/")
+ ("/home/minall/Documents/projects/docAPI/" . "node_modules/")
+ ("/home/minall/.config/" . "pulse/")
+ ("/home/minall/.emacs.d/" . "auto-save-list/")
+ ("/home/minall/.emacs.d.bak/" . "emacs-application-framework/")
+ ("/home/minall/.npm/" . "_logs/")
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/" . "resetPassword/")
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/" . "authentication/")
+ ("/home/minall/Documents/projects/docSRI_App/" . "src/")
+ ("/home/minall/Documents/projects/docSRI_App/src/views/" . "pages/")
+ ("/home/minall/Documents/projects/docSRI_App/src/" . "views/")
+ ("/home/minall/Documents/projects/" . "javApp/")
+ ("/home/minall/Documents/" . "projects/")
+ ("/home/" . "minall/")
+ ("/" . "etc/")
+ ("/home/minall/src/" . "@fake-db/")
+ ("/home/minall/" . "org/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/minall/org/"
+ "/home/minall/"
+ "/etc/"
+ "/etc/systemd/"
+ "/sudo:root@localhost:/etc/wpa_supplicant/"
+ "/etc/wpa_supplicant/"
+ "/sudo:root@localhost:/etc/systemd/network/"
+ "/sudo:root@localhost:/etc/systemd/"
+ "/etc/systemd/network/"
+ "/home/minall/Documents/projects/javApp/"
+ "/home/minall/Downloads/"
+ "/home/minall/Documents/projects/foo-Wallpaper-Feh-Gif/"
+ "/home/minall/Pictures/personal/"
+ "/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/resetPassword/"
+ "/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/register/"
+ "/home/minall/Documents/projects/docSRI_App/src/"
+ "/home/minall/Documents/projects/docSRI_App/"
+ "/home/minall/Documents/projects/"
+ "/home/minall/.config/pulse/"
+ "/home/minall/Documents/JaponÃ©s/"
+ "/home/minall/Documents/"
+ "/home/minall/Documents/projects/docSRI_App/src/database/"
+ "/home/minall/.emacs.d/"
+ "/home/minall/.emacs.d.bak/"
+ "/home/minall/Documents/lastProject/"
+ "/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/login/"
+ "/home/minall/.npm/_logs/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "mySystem.org"
+ "plans.org"
+ "something.ledger"
+ "resolv.conf"
+ "resolved.conf"
+ "wpa_supplicant.conf"
+ "wpa_supplicant-wlo1.conf"
+ "25-wireless.network"
+ "networkd.conf"
+ "20-wired.network"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/minall/.emacs.d/" (24355 38021 379960 242000) "places" "recentf" "ido-grid-mode.el" "auto-save-list/" "eshell/" ".cask/" "tramp" "url/" "init.org~" "image-dired/" "./" "init.el" "ido.last" "recentf~" "init.el~" "../" "elpa/" "bookmarks" "projectile-bookmarks.eld" "ido.last~" "desktop-environment.el" "init.org" "thumbs/")
+
+ ("/home/minall/Downloads/" (24354 3057 286693 338000) "ezgif.com-video-to-gif(1).gif" "AnyConv.com__Chill.png" "install67.fs" "ezgif.com-video-to-gif.gif" "EFA_v7.0_SERBACHILLER.exe" "./" "install67.iso" "../")
+
+ ("/etc/wpa_supplicant/" (24353 30696 728452 54000) "wpa_supplicant-wlo1.conf" "./" "../" "wpa_supplicant.conf" "wpa_supplicant-wlo1.conf~")
+
+ ("/home/minall/org/" (24354 14112 6870 790000) "plans.org~" "plans.org" "mySystem.org~" "./" "mySystem.org" "../")
+
+ ("/etc/systemd/" (24354 319 328192 627000) "user/" "resolved.conf~" "user.conf" "networkd.conf" "coredump.conf" "networkd.conf~" "pstore.conf" "journal-upload.conf" "./" "system/" "../" "journald.conf" "journal-remote.conf" "logind.conf" "network/" "timesyncd.conf" "sleep.conf" "system.conf" "resolved.conf")
+
+ ("/etc/" (24355 4301 818077 424000) "passwd-" "tmpfiles.d/" "sudoers.d/" "sensors3.conf" "depmod.d/" "adjtime" "sensors.d/" "hostname" "ts.conf" "ld.so.conf.d/" "hosts" "initcpio/" "dconf/" "ld.so.cache" "libpaper.d/" "krb5.conf" "sudoers" "gimp/" "iptables/" "pulse/" "profile.d/" "gai.conf" "inputrc" "resolv.conf" "mailcap" "sudo_logsrvd.conf" "rc_maps.cfg" "libreoffice/" "e2scrub.conf" "profile" "bash.bashrc" "localtime" "nscd.conf" "X11/" "gshadow" "pkcs11/" "papersize" "bluetooth/" "tlp.d/" "gshadow-" "sasl2/" "vimrc" "netconfig" "my.cnf" "locale.gen" "lsb-release" "vde/" "xdg/" ".pwd.lock" "request-key.conf" "arch-release" "gssapi_mech.conf" "dkms/" "security/" "dhcpcd.conf" "resolv.conf~" "mke2fs.conf" "asound.conf" "mkinitcpio.d/" "ImageMagick-6/" "locale.conf" "UPower/" "vde2/" "avahi/" "polkit-1/" "mtab" "fonts/" "nginx/" "libnl/" "wgetrc" "modprobe.d/" "securetty" "udev/" "gemrc" "ca-certificates/" "pam.d/" "kernel/" "group-" "libva.conf" "passwd" "makepkg.conf" "my.cnf.d/" "libvirt/" "systemd/" "machine-id" "odbcinst.ini" "crypttab" "doas.conf" "healthd.conf" "iproute2/" "gtk-2.0/" "vbox/" ".updated" "bindresvport.blacklist" "./" "fuse.conf" "request-key.d/" "keyutils/" "ssl/" "grub.d/" "pacman.conf" "binfmt.d/" "brlapi.key" "alsa/" "mtools.conf" "java11-openjdk/" "sudo.conf" "trusted-key.key" "odbc.ini" "../" "mkinitcpio.conf" "audisp/" "tlp.conf" "default/" "rc_keymaps/" "rpc" "vdpau_wrapper.cfg" "pacman.d/" "shadow" "protocols" "conf.d/" "man_db.conf" "motd" "shells" "sysctl.d/" "openldap/" "shadow-" "skel/" "gtk-3.0/" "services" "ODBCDataSources/" "environment" "group" "login.defs" "audit/" "xattr.conf" "wpa_supplicant/" "os-release" "nsswitch.conf" "host.conf" "ld.so.conf" "bash.bash_logout" "java-openjdk/" "ssh/" "fstab" "xinetd.d/" "mime.types" "libaudit.conf" "issue" "modules-load.d/" "ethertypes" "logrotate.d/" "brltty.conf")
+
+ ("/home/minall/" (24355 26972 849989 420000) ".bash_logout" ".tlauncher/" ".Xauthority" ".zoom/" ".mysql/" ".npm/" ".config/" "VirtualBox VMs/" ".zshrc" ".steampath" ".steampid" ".viminfo" ".emacs.d.bak/" ".wine/" ".pulse-cookie" ".Genymobile/" ".profile" ".bash_history" ".mozilla/" "Downloads/" ".emacs.d/" ".xinitrc" "rvm-install" ".mkshrc" ".java/" "Documents/" "Games/" "org/" "Pictures/" ".bashrc" "./" "Desktop/" ".zlogin" "../" ".rvm/" ".pki/" ".local/" ".gnupg/" ".bash_profile" ".smex-items" ".dotnet/" ".gem/" ".steam/" ".cache/" ".nuget/" ".minecraft/")
+
+ ("/etc/sysctl.d/" (24305 58100 0 0) "./" "../")
+
+ ("/etc/systemd/network/" (24353 30386 848458 758000) "25-wireless.network" "./" "../" "20-wired.network" "20-wired.network~")
+
+ ("/home/minall/org/home/" (24352 58902 803460 262000) "minall/" "./" "../")
+
+ ("/home/minall/org/home/minall/" (24352 58902 823460 263000) "./" "../" "notes.org")
+
+ ("/home/minall/Documents/projects/docAPI/" (24352 37023 177096 753000) "node_modules/" "package-lock.json" "index.js" "package.json" "./" "../" "index.js~")
+
+ ("/home/minall/Documents/projects/javApp/" (24352 13720 46718 204000) "Quito, X de X de 2020 Proyecto Speed Final..odt" "./" "Quito, X de X de 2020 Proyecto Speed Final. (1).docx" "../")
+
+ ("/home/minall/Pictures/wallpaper/" (24352 43834 903872 767000) "ezgif-frame-046.jpg" "ezgif-frame-040.jpg" "ezgif-frame-050.jpg" "ezgif-frame-037.jpg" "ezgif-frame-011.jpg" "ezgif-frame-028.jpg" "ezgif-frame-014.jpg" "ezgif-frame-023.jpg" "ezgif-frame-038.jpg" "ezgif-frame-026.jpg" "ezgif-frame-017.jpg" "ezgif-frame-022.jpg" "ezgif-frame-003.jpg" "ezgif-frame-007.jpg" "ezgif-frame-043.jpg" "ezgif-frame-015.jpg" "ezgif-frame-036.jpg" "ezgif-frame-049.jpg" "ezgif-frame-032.jpg" "ezgif-frame-008.jpg" "ezgif-frame-034.jpg" "ezgif-frame-005.jpg" "ezgif-frame-044.jpg" "ezgif-frame-019.jpg" "ezgif-frame-012.jpg" "ezgif-frame-033.jpg" "ezgif-frame-045.jpg" "ezgif-frame-024.jpg" "ezgif-frame-018.jpg" "ezgif-frame-030.jpg" "ezgif-frame-009.jpg" "ezgif-frame-016.jpg" "ezgif-frame-041.jpg" "ezgif-frame-048.jpg" "ezgif-frame-020.jpg" "ezgif-frame-029.jpg" "./" "ezgif-frame-013.jpg" "../" "ezgif-frame-004.jpg" "ezgif-frame-027.jpg" "ezgif-frame-021.jpg" "ezgif-frame-039.jpg" "ezgif-frame-035.jpg" "ezgif-frame-006.jpg" "ezgif-frame-025.jpg" "ezgif-frame-047.jpg" "ezgif-frame-010.jpg" "ezgif-frame-031.jpg" "ezgif-frame-042.jpg" "ezgif-frame-001.jpg" "ezgif-frame-002.jpg")
+
+ ("/home/minall/Pictures/" (24352 43563 50535 68000) "personal/" "wallpaper/" "./" "../")
+
+ ("/home/minall/.npm/_logs/" (24352 33340 80370 398000) "2020-07-28T19_49_29_298Z-debug.log" "2020-07-28T19_25_28_628Z-debug.log" "2020-07-28T19_53_32_069Z-debug.log" "2020-07-28T19_31_06_828Z-debug.log" "2020-07-28T18_37_41_896Z-debug.log" "2020-07-28T19_50_49_488Z-debug.log" "2020-07-28T19_10_23_746Z-debug.log" "2020-07-28T19_41_18_864Z-debug.log" "./" "../" "2020-07-28T18_38_40_491Z-debug.log" "2020-07-28T18_40_44_438Z-debug.log")
+
+ ("/home/minall/Documents/projects/" (24352 37023 177096 753000) "notes.org~" "javApp/" "foo-Wallpaper-Feh-Gif/" "docAPI/" "./" "docSRI_App/" "../" "notes.org")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/" (24352 33226 353701 832000) "index.scss" "serviceWorker.js" "components/" "@fake-db/" "views/" "redux/" "utility/" "index.js" "assets/" "Router.js~" "./" "layouts/" "../" "serviceWorker.js~" "configs/" "App.test.js" "App.js" "Router.js" "history.js")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/resetPassword/" (24352 33342 780370 440000) "resetPassword.js~" "resetPassword.js" "resetPasswordToken.js~" "./" "../" "resetPasswordToken.js")
+
+ ("/home/minall/.emacs.d/elpa/emacs-wallpaper/" (24352 43817 350539 152000) "wallpaper.el" ".gitattributes" ".github/" "./" "test/" "../" "makem.sh" ".gitignore")
+
+ ("/home/minall/.emacs.d/elpa/" (24352 43834 903872 767000) "smartparens-1.11.0/" "aggressive-indent-1.8.3.signed" "desktop-environment-0.3.0/" "xelb-0.18/" "exwm-0.24.signed" "dash-2.17.0/" "bluetooth-0.1.2/" "smex-3.0/" "exwm-0.24/" "bind-key-2.4/" "autothemer-0.2.2/" "bluetooth-0.1.2.signed" "js2-mode-20190219/" "sml-mode-6.10/" "powerline-2.4/" "ruby-electric-2.3.3/" "sml-mode-6.10.signed" "use-package-2.4/" "pkg-info-0.6/" "system-packages-1.0.11/" "ido-grid-mode-1.0.1/" "gnupg/" "company-0.9.12/" "smart-mode-line-2.13/" "xelb-0.18.signed" "rjsx-mode-0.5.0/" "dashboard-1.7.0/" "bluetooth-readme.txt" "rich-minority-1.0.3/" "all-the-icons-4.0.1/" "aggressive-indent-readme.txt" "emmet-mode-1.0.8/" "memoize-1.1/" "page-break-lines-0.11/" "./" "gruvbox-theme-1.28.0/" "use-package-readme.txt" "emacs-wallpaper/" "projectile-2.2.0/" "../" "epl-0.9/" "web-completion-data-0.2/" "rvm-1.4.0/" "flycheck-31/" "company-web-2.1/" "tablist-1.0/" "archives/" "sudo-edit-0.1.0/" "aggressive-indent-1.8.3/")
+
+ ("/home/minall/Documents/projects/foo-Wallpaper-Feh-Gif/" (24352 37077 637097 628000) "gif/" ".git/" "desktop-animation2.gif" "desktop-animation4.gif" "back4.sh" ".github/" "./" "../" "README.md" "CONTRIBUTING.md" "LICENSE" "CODE_OF_CONDUCT.md")
+
+ ("/home/minall/Pictures/personal/" (24349 7253 543920 826000) "./" "Chill.mp4" "../" "sorata.png")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/register/" (24352 32015 170347 661000) "./" "../" "emailVerification.js" "register.js" "emailVerification.js~")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/@fake-db/auth/" (24352 20365 343489 957000) "authentication.js~" "./" "../" "authentication.js")
+
+ ("/home/minall/Documents/projects/docAPI/node_modules/" (24350 21305 925131 623000) "parseurl/" "inflight/" "ini/" "iconv-lite/" "yallist/" "ipaddr.js/" "readable-stream/" "mime-db/" "chownr/" "content-type/" "depd/" "accepts/" "serve-static/" "body-parser/" "strip-json-comments/" "inherits/" "merge-descriptors/" "express/" "has-unicode/" "minizlib/" "etag/" "gauge/" "delegates/" "media-typer/" "wide-align/" "mysql/" "npmlog/" "content-disposition/" "on-finished/" "wrappy/" "ignore-walk/" "ansi-regex/" "string_decoder/" "npm-bundled/" "cors/" "npm-normalize-package-bin/" "safer-buffer/" "path-is-absolute/" "proxy-addr/" "semver/" "detect-libc/" "methods/" "jwt-simple/" "fs.realpath/" "nopt/" "sqlstring/" "tar/" "process-nextick-args/" "brace-expansion/" "once/" "escape-html/" "encodeurl/" "destroy/" "glob/" "send/" "os-tmpdir/" "npm-packlist/" "mime-types/" "osenv/" "code-point-at/" "unpipe/" "sax/" "is-fullwidth-code-point/" "qs/" "safe-buffer/" "negotiator/" "statuses/" "signal-exit/" "balanced-match/" "toidentifier/" "fs-minipass/" "range-parser/" "deep-extend/" "raw-body/" "rc/" "set-blocking/" "nodemailer/" "mkdirp/" "./" "node-addon-api/" "fresh/" "strip-ansi/" "rimraf/" "bignumber.js/" "type-is/" "are-we-there-yet/" "aproba/" "string-width/" "isarray/" "minimist/" "utils-merge/" "../" "http-errors/" "util-deprecate/" "minipass/" "array-flatten/" "concat-map/" "vary/" "console-control-strings/" "mime/" "abbrev/" "cookie/" "bcrypt/" "core-util-is/" "forwarded/" "node-pre-gyp/" "ee-first/" "path-to-regexp/" "setprototypeof/" "minimatch/" ".bin/" "debug/" "bytes/" "os-homedir/" "number-is-nan/" "object-assign/" "cookie-signature/" "ms/" "finalhandler/" "needle/")
+
+ ("/home/minall/Documents/projects/docSRI_App/" (24350 20687 205121 776000) "yarn-error.log" "node_modules/" "package-lock.json" ".idea/" "config-overrides.js" "src/" "build/" "package.json" "./" "../" "public/" ".gitignore")
+
+ ("/home/minall/.config/pulse/" (24350 15599 899778 621000) "e70ba63e52314b76aef0712343920572-stream-volumes.tdb" "e70ba63e52314b76aef0712343920572-default-sink" "daemon.conf" "e70ba63e52314b76aef0712343920572-card-database.tdb" "e70ba63e52314b76aef0712343920572-default-source" "./" "../" "cookie" "e70ba63e52314b76aef0712343920572-device-volumes.tdb")
+
+ ("/home/minall/.config/" (24350 15286 869785 305000) "dconf/" "procps/" "pulse/" "libreoffice/" "Genymobile/" "cef_user_data/" "Slack/" "VirtualBox/" "configstore/" "./" "zoomus.conf" "../" "gtk-3.0/" "yay/")
+
+ ("/home/minall/Documents/lastProject/" (24349 7089 580584 857000) "Proyecto Suarez terminado.docx" "./" "../")
+
+ ("/home/minall/Documents/JaponÃ©s/" (24349 7346 347255 650000) "diccionario.pdf" "Marugoto Gramatica ES.pdf" "intro al japonÃ©s.pdf" "jp_gram_esp.pdf" "./" "../" "curso_de_japones.pdf")
+
+ ("/home/minall/Documents/" (24349 7253 543920 826000) "projects/" "others/" "personal/" "./" "JaponÃ©s/" "lastProject/" "../" "notes.org")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/database/" (24348 37647 613357 418000) "index.js" "./" "../" "index.js~")
+
+ ("/home/minall/.emacs.d/auto-save-list/" (24347 56666 229417 901000) "./" "../")
+
+ ("/home/minall/.emacs.d.bak/" (24347 56664 999417 927000) "configuration.org~" "emacs-application-framework/" ".git/" "auto-save-list/" "eshell/" "configuration.org" "configuration.el" "./" "init.el" "ido.last" "../" "elpa/" "README.md" "ido.last~" "LICENSE")
+
+ ("/usr/share/emacs/26.3/lisp/progmodes/" (24346 26894 15018 285000) "xscheme.el.gz" "flymake.elc" "scheme.elc" "scheme.el.gz" "python.el.gz" "idlwave.el.gz" "cc-align.el.gz" "cfengine.el.gz" "executable.el.gz" "perl-mode.elc" "sql.el.gz" "ebnf-iso.el.gz" "meta-mode.el.gz" "cc-awk.el.gz" "ruby-mode.el.gz" "ebnf-otz.elc" "etags.el.gz" "hideshow.elc" "project.elc" "verilog-mode.elc" "ada-mode.elc" "cc-fonts.elc" "gdb-mi.el.gz" "mixal-mode.el.gz" "cc-guess.elc" "hideshow.el.gz" "compile.el.gz" "inf-lisp.el.gz" "cc-defs.el.gz" "ebnf-otz.el.gz" "pascal.elc" "simula.elc" "cc-vars.elc" "cperl-mode.elc" "icon.el.gz" "idlw-toolbar.elc" "antlr-mode.elc" "cc-fonts.el.gz" "gdb-mi.elc" "modula2.el.gz" "cc-mode.el.gz" "tcl.elc" "cpp.elc" "ebnf-bnf.elc" "ebrowse.el.gz" "bug-reference.el.gz" "octave.el.gz" "ebnf2ps.el.gz" "cc-menus.el.gz" "cc-mode.elc" "opascal.elc" "sql.elc" "ada-prj.el.gz" "asm-mode.el.gz" "inf-lisp.elc" "cc-engine.elc" "cmacexp.elc" "f90.el.gz" "ada-stmt.el.gz" "gud.el.gz" "glasses.elc" "idlwave.elc" "pascal.el.gz" "hideif.elc" "sh-script.el.gz" "fortran.el.gz" "sh-script.elc" "autoconf.elc" "prolog.el.gz" "cc-styles.elc" "etags.elc" "ld-script.elc" "ada-stmt.elc" "idlw-toolbar.el.gz" "glasses.el.gz" "xref.elc" "compile.elc" "vhdl-mode.elc" "m4-mode.el.gz" "elisp-mode.elc" "bat-mode.el.gz" "cc-cmds.elc" "autoconf.el.gz" "ebnf-yac.elc" "cc-guess.el.gz" "cmacexp.el.gz" "mixal-mode.elc" "flymake-proc.elc" "cperl-mode.el.gz" "idlw-help.elc" "grep.el.gz" "cc-menus.elc" "verilog-mode.el.gz" "idlw-shell.el.gz" "simula.el.gz" "ada-xref.el.gz" "gud.elc" "dcl-mode.elc" "prog-mode.elc" "cc-awk.elc" "bat-mode.elc" "cwarn.elc" "ebnf-dtd.elc" "project.el.gz" "cc-align.elc" "prog-mode.el.gz" "vera-mode.el.gz" "ebnf-ebx.elc" "idlw-help.el.gz" "cc-engine.el.gz" "cc-defs.elc" "flymake.el.gz" "hideif.el.gz" "dcl-mode.el.gz" "executable.elc" "cc-cmds.el.gz" "subword.el.gz" "bug-reference.elc" "ebnf-bnf.el.gz" "make-mode.el.gz" "./" "tcl.el.gz" "meta-mode.elc" "prolog.elc" "ebnf-abn.elc" "elisp-mode.el.gz" "idlw-complete-structtag.el.gz" "js.el.gz" "ebrowse.elc" "cpp.el.gz" "icon.elc" "ebnf-abn.el.gz" "idlw-complete-structtag.elc" "cc-vars.el.gz" "make-mode.elc" "cwarn.el.gz" "../" "cfengine.elc" "python.elc" "antlr-mode.el.gz" "ebnf-iso.elc" "cc-langs.elc" "xscheme.elc" "cc-langs.el.gz" "fortran.elc" "subword.elc" "which-func.elc" "modula2.elc" "ps-mode.el.gz" "cc-bytecomp.elc" "asm-mode.elc" "ebnf-ebx.el.gz" "cc-styles.el.gz" "idlw-shell.elc" "perl-mode.el.gz" "f90.elc" "ps-mode.elc" "m4-mode.elc" "flymake-proc.el.gz" "xref.el.gz" "ld-script.el.gz" "ruby-mode.elc" "ada-xref.elc" "ada-prj.elc" "ebnf-yac.el.gz" "mantemp.elc" "grep.elc" "vera-mode.elc" "js.elc" "which-func.el.gz" "mantemp.el.gz" "opascal.el.gz" "ada-mode.el.gz" "cc-bytecomp.el.gz" "ebnf2ps.elc" "octave.elc" "ebnf-dtd.el.gz" "vhdl-mode.el.gz")
+
+ ("/home/minall/.npm/" (24346 64492 321791 329000) "_cacache/" "_logs/" "node-sass/" "_locks/" "anonymous-cli-metrics.json" "./" "../")
+
+ ("/home/minall/.emacs.d.bak/emacs-application-framework/" (24346 28740 55089 249000) "./" "../")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/login/" (24346 64563 348456 415000) "Login.js" "./" "../")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/" (24346 31230 528398 937000) "resetPassword/" "login/" "register/" "./" "../")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/" (24346 31230 525065 603000) "Home.js" "Page2.js" "./" "../" "authentication/")
+
+ ("/home/minall/Documents/projects/docSRI_App/src/views/" (24346 31230 521732 271000) "./" "../" "pages/")
+
+ ("/home/" (24346 26391 698544 814000) "minall/" "./" "../")
+
+ ("/usr/" (24346 62497 45168 779000) "include/" "lib64/" "sbin/" "lib/" "src/" "local/" "lib32/" "bin/" "./" "../" "share/")
+
+ ("/home/minall/src/@fake-db/" (24346 31230 85065 602000) "navbar/" "mock.js" "index.js" "./" "auth/" "../")
+
+ ("/home/minall/src/" (24346 31230 521732 271000) "index.scss" "serviceWorker.js" "components/" "@fake-db/" "views/" "redux/" "utility/" "database/" "index.js" "assets/" "./" "layouts/" "../" "configs/" "App.test.js" "App.js" "Router.js" "history.js")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

@@ -1,0 +1,50 @@
+;;; -*- coding: utf-8 -*-
+(("/home/minall/.emacs.d.bak/configuration.org" . 2)
+ ("/home/minall/"
+  (dired-filename . "/home/minall/.emacs.d"))
+ ("/home/minall/.emacs.d/"
+  (dired-filename . "/home/minall/.emacs.d/init.el"))
+ ("/home/minall/.emacs.d/recentf" . 572)
+ ("/home/minall/.emacs.d/init.el" . 3979)
+ ("/home/minall/.emacs.d/init.org" . 2480)
+ ("/home/minall/.emacs.d/elpa/all-the-icons-4.0.1/all-the-icons-autoloads.el" . 2243)
+ ("/home/minall/.emacs.d/elpa/memoize-1.1/memoize-autoloads.el" . 416)
+ ("/home/minall/.emacs.d/elpa/dashboard-1.7.0/dashboard-autoloads.el" . 951)
+ ("/home/minall/.emacs.d/elpa/page-break-lines-0.11/page-break-lines-autoloads.el" . 2103)
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/resetPassword/resetPassword.js" . 1447)
+ ("/home/minall/Documents/"
+  (dired-filename . "/home/minall/Documents/projects"))
+ ("/home/minall/Documents/projects/"
+  (dired-filename . "/home/minall/Documents/projects/javApp"))
+ ("/home/minall/.emacs.d/elpa/rjsx-mode-0.5.0/rjsx-mode-autoloads.el" . 1225)
+ ("/home/minall/.emacs.d/elpa/js2-mode-20190219/js2-mode-autoloads.el" . 2052)
+ ("/home/minall/Documents/projects/docSRI_App/package.json" . 607)
+ ("/home/minall/.emacs.d/elpa/projectile-2.2.0/projectile-autoloads.el" . 20749)
+ ("/home/minall/.emacs.d/elpa/pkg-info-0.6/pkg-info-autoloads.el" . 3882)
+ ("/home/minall/.emacs.d/elpa/epl-0.9/epl-autoloads.el" . 380)
+ ("/home/minall/Documents/projects/docSRI_App/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src"))
+ ("/home/minall/Documents/projects/docSRI_App/src/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src/views"))
+ ("/home/minall/Documents/projects/docSRI_App/src/views/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src/views/pages"))
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication"))
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/resetPassword"))
+ ("/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/resetPassword/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src/views/pages/authentication/resetPassword/resetPassword.js"))
+ ("/home/minall/Documents/projects/docSRI_App/src/database/"
+  (dired-filename . "/home/minall/Documents/projects/docSRI_App/src/database/index.js~"))
+ ("/home/minall/Documents/projects/docSRI_App/src/database/index.js" . 3415)
+ ("/home/minall/Documents/projects/docSRI_App/src/Router.js" . 2387)
+ ("/home/minall/Documents/projects/docSRI_App/config-overrides.js" . 146)
+ ("/usr/share/emacs/26.3/lisp/progmodes/js.el.gz" . 139755)
+ ("/home/minall/Documents/xampp-linux-x64-5.6.3-0-installer.run" . 12582913)
+ ("/home/minall/Documents/uni.org" . 1718)
+ ("/home/minall/Documents/JaponÃ©s/"
+  (dired-filename . "/home/minall/Documents/JaponÃ©s/diccionario.pdf"))
+ ("/home/minall/Documents/lastProject/"
+  (dired-filename . "/home/minall/Documents/lastProject/Proyecto final.docx"))
+ ("/home/minall/Documents/lastProject/Formato - Proyecto de Grado 2020 (Estudiantes de tercero bachillerato).docx" . 445)
+ ("/home/minall/.emacs.d/elpa/tablist-1.0/tablist-autoloads.el" . 1109))

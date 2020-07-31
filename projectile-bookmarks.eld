@@ -1,0 +1,1 @@
+("~/Documents/projects/foo-Wallpaper-Feh-Gif/" "~/.emacs.d.bak/")

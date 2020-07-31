@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 2905
+Cache-Control: max-age=30, s-maxage=30
+Content-Security-Policy: default-src 'none'; img-src data:; style-src 'unsafe-inline'
+Content-Type: image/svg+xml;charset=utf-8
+Expires: Fri, 31 Jul 2020 14:16:24 GMT
+Server: github-camo (62249a1c)
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-Xss-Protection: 1; mode=block
+X-GitHub-Request-Id: 62F8:547F:23454C:29F6A5:5F242795
+Accept-Ranges: bytes
+Date: Fri, 31 Jul 2020 14:15:54 GMT
+Via: 1.1 varnish
+Age: 0
+X-Served-By: cache-jax20923-JAX
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1596204954.910723,VS0,VE207
+X-Fastly-Request-ID: 2846d3796109d966c4f526a1391f25cabc44e8ea
+Timing-Allow-Origin: https://github.com
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167" height="20" role="img" aria-label="Discord Chat: 679 online"><title>Discord Chat: 679 online</title><g shape-rendering="crispEdges"><rect width="98" height="20" fill="#555"/><rect x="98" width="69" height="20" fill="#007ec6"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110"><image x="5" y="3" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik00LjMzNCA0LjYzNmMxLjM1MS0uNzI1IDIuODUyLTEuMjIyIDQuMzkzLTEuMjY4bC4yMDUuMjVjLTEuMzYzLjM5OS0yLjY5My45MjUtMy45MiAxLjY0NS0uNTA3LjMxMi0xLjAyMy42MjQtMS40NjIgMS4wMjkgMS4xMDYtLjU1MyAyLjIzNy0xLjA3OSAzLjQzOC0xLjM5NC42NDgtLjE4MyAxLjMwMi0uMzUxIDEuOTcyLS40MjggMS42MDQtLjIyNSAzLjIzNi0uMzI1IDQuODUtLjE0NGExNy42MzcgMTcuNjM3IDAgMCAxIDMuMzk1LjczMiAxOC41OTYgMTguNTk2IDAgMCAxIDIuODA1IDEuMjAxYy0uMjQtLjI0My0uNTI0LS40MzQtLjgwNi0uNjIyLTEuMjk1LS44NjQtMi43NDEtMS40OC00LjIyNC0xLjk0LjEzMy0uMTIzLjIyLS4zNjkuNDQxLS4zMyAxLjk0Ny4xMjQgMy44MTkuODg2IDUuNCAyLjAxLjExNC4wNzQuMjQzLjE0NC4yOTEuMjhhMjguMzMzIDI4LjMzMyAwIDAgMSAyLjIwOCA2LjIwMWMuNDE0IDEuOC42NTIgMy42NDIuNjc4IDUuNDg5LjAwNS4wOTIuMDA1LjE5Mi0uMDYuMjY3LTEuMDUgMS40NjYtMi43MDkgMi40MTctNC40NTEgMi44MDVhOS4yNTQgOS4yNTQgMCAwIDEtMS43NzcuMjE4IDgxLjY5MSA4MS42OTEgMCAwIDEtMS4zNTUtMS42NzRjLjYyNC0uMTYyIDEuMjE1LS40MjcgMS43OC0uNzMzLjc0LS40MzQgMS40MzctLjk4MiAxLjkyNi0xLjY5NC0uNzAxLjQ1LTEuNDM0Ljg1NC0yLjIxNiAxLjE1YTE4LjczMyAxOC43MzMgMCAwIDEtMS41MjEuNTU2Yy0uODg0LjI4Mi0xLjgwMy40MzQtMi43MjIuNTQzLTEuMDYuMTE1LTIuMTMzLjA4LTMuMTkxLS4wNC0xLjEtLjExOC0yLjE3Ny0uMzk1LTMuMjI2LS43NC0uODY1LS4zMTUtMS43NDMtLjYyNS0yLjUyNC0xLjEyMi0uMi0uMTI2LS40LS4yNTItLjYwNS0uMzY4LjMwOS40NzcuNzQzLjg1NiAxLjE4MSAxLjIxYTcuNTUgNy41NSAwIDAgMCAyLjQwMiAxLjIgNjkuMjQ2IDY5LjI0NiAwIDAgMS0xLjE4MiAxLjQ2MmMtLjA5NC4wOTgtLjE1NS4yODItLjMyMy4yNDVhOS4zOTggOS4zOTggMCAwIDEtMi40NC0uNDIzYy0xLjA4Ni0uMzc2LTIuMTIyLS45NDctMi45MzctMS43NjctLjI4NC0uMjgxLS41NjItLjU4Mi0uNzU3LS45MzQtLjAyLTMuMDY2LjYyMi02LjEwOSAxLjY1MS04Ljk4Ny4zNjktMS4wMTUuNzg0LTIuMDE3IDEuMjkyLTIuOTcuNDIxLS4zNi45MDktLjY0MiAxLjM5MS0uOTE1bTMuNTgzIDYuNDEyYy0uNzI5LjA4Mi0xLjM2NC41OTYtMS42NSAxLjI2Mi0uNDYyLjk5OC0uMTQ3IDIuMzA4Ljc3IDIuOTM1LjQ2NC4zMiAxLjA2OS40MzUgMS42MTQuMjgyLjU5OS0uMTQ3IDEuMDktLjYwMiAxLjM1NS0xLjE1LjQ0NS0uOTAyLjI2Ny0yLjA4My0uNDY1LTIuNzg1LS40My0uNC0xLjAzNi0uNjI2LTEuNjI0LS41NDRtNy4zNzYuMDE4Yy0xLjAxOC4xOS0xLjc0OCAxLjE5Ni0xLjczNSAyLjIxMS0uMDEzLjguMzg2IDEuNjE1IDEuMDggMi4wMzQuNDYuMjk0IDEuMDUuMzU2IDEuNTcuMi41NzktLjE2IDEuMDUtLjYxIDEuMzA0LTEuMTQ0LjQ2Mi0uOTQuMjMtMi4xODYtLjU3OS0yLjg2M2ExLjk5NCAxLjk5NCAwIDAgMC0xLjY0LS40Mzh6Ii8+PC9zdmc+"/><text x="585" y="140" transform="scale(.1)" fill="#fff" textLength="710">Discord Chat</text><text x="1315" y="140" transform="scale(.1)" fill="#fff" textLength="590">679 online</text></g></svg>
