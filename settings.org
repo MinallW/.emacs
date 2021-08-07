@@ -1,0 +1,606 @@
+* General Settings
+
+** Starting
+   #+begin_src elisp
+     (require 'package)
+     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+     (unless (package-installed-p 'use-package)
+       (package-refresh-contents)
+       (package-install 'use-package))
+     (require 'use-package-ensure)
+     (setq use-package-always-ensure t)
+
+     (setq gc-cons-threshold 100000000)
+     (add-hook 'after-init-hook
+	       #'(lambda ()
+		   (setq gc-cons-threshold 800000)))
+   #+end_src
+
+** Disable defaults
+
+   #+begin_src elisp
+     (menu-bar-mode -1)
+     (tool-bar-mode -1)
+     (scroll-bar-mode -1)
+     (setq inhibit-startup-screen t)
+     (setq initial-scratch-message "")
+     (setq-default frame-title-format '("%b"))
+     (setq ring-bell-function 'ignore)
+     (fset 'yes-or-no-p 'y-or-n-p)
+     (setq echo-keystrokes 0.1)
+     (setq confirm-kill-emacs 'y-or-n-p)
+   #+end_src
+
+** Defuns
+
+   #+begin_src elisp
+     (defun sanemacs/backward-kill-word ()
+       "Kill word without pushing to kill ring."
+       (interactive "*")
+       (push-mark)
+       (backward-word)
+       (delete-region (point) (mark)))
+
+     (defun betterSplitWindow ()
+       "Split window and bring the latest use window."
+       (interactive)
+       (split-window-below)
+       (other-window 1)
+       (switch-to-buffer nil)
+       (other-window 1))
+
+     (defun betterSplitWindowRight ()
+       "Split window and bring the latest use window."
+       (interactive)
+       (split-window-right)
+       (other-window 1)
+       (switch-to-buffer nil)
+       (other-window 1))
+   #+end_src
+
+** Unbind undeeded keys
+
+   #+begin_src elisp
+     (global-set-key (kbd "C-z") nil)
+     (global-set-key (kbd "M-z") nil)
+     (global-set-key (kbd "M-m") nil)
+     (global-set-key (kbd "C-x C-z") nil)
+     (global-set-key (kbd "M-/") nil)
+     (global-set-key (kbd "M-n") #'forward-paragraph)
+     (global-set-key (kbd "M-p") #'backward-paragraph)
+   #+end_src
+
+** Enable global and minor modes
+
+   #+begin_src elisp
+     (setq display-line-numbers-type 'visual)
+     (global-display-line-numbers-mode)
+     (global-visual-line-mode)
+     (global-subword-mode 1)
+     (global-hl-line-mode 1)
+     (delete-selection-mode 1)
+     (global-auto-revert-mode t)
+     (global-prettify-symbols-mode 1)
+     (electric-pair-mode 1)
+     (show-paren-mode 1)
+     (display-time-mode 1)
+     (display-battery-mode 1)
+
+     (when (fboundp 'global-so-long-mode)
+       (global-so-long-mode))
+
+     (put 'narrow-to-region 'disabled nil)
+     (add-hook 'before-save-hook 'whitespace-cleanup)
+     (add-hook 'before-save-hook
+	       'delete-trailing-whitespace)
+
+     (add-hook 'dired-mode-hook
+	       (lambda ()
+		 (dired-hide-details-mode)
+		 (dired-sort-toggle-or-edit)))
+
+     ;;; Put Emacs auto-save and backup files to /tmp/ or C:/Temp/
+     (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+     (setq
+      backup-by-copying t                                        ; Avoid symlinks
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t
+      auto-save-list-file-prefix emacs-tmp-dir
+      auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t))  ; Change autosave dir to tmp
+      backup-directory-alist `((".*" . ,emacs-tmp-dir)))
+
+     ;;; Lockfiles for React development
+     (setq create-lockfiles nil)
+   #+end_src
+
+** Keybindings
+
+   #+begin_src elisp
+     (global-set-key (kbd "M-DEL") 'sanemacs/backward-kill-word)
+     (global-set-key (kbd "C-DEL") 'sanemacs/backward-kill-word)
+     (global-set-key (kbd "C-x 2") 'betterSplitWindow)
+     (global-set-key (kbd "C-x 3") 'betterSplitWindowRight)
+     (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
+   #+end_src
+
+** File finding
+
+   #+begin_src elisp
+     (use-package ivy
+       :diminish
+       :init
+       (use-package amx :defer t)
+       (use-package counsel :diminish :config (counsel-mode 1))
+       (use-package swiper :defer t)
+       (ivy-mode 1)
+       :bind
+       (("C-s" . swiper-isearch)
+	("C-z s" . counsel-rg)
+	("C-z b" . counsel-buffer-or-recentf)
+	("C-x b" . counsel-switch-buffer)
+	(:map ivy-minibuffer-map
+	      ("C-r" . ivy-previous-line-or-history)
+	      ("M-RET" . ivy-immediate-done))
+	(:map counsel-find-file-map
+	      ("C-~" . counsel-goto-local-home)))
+       :custom
+       (ivy-re-builders-alist
+	   '((t . ivy--regex-ignore-order)))
+       (ivy-use-virtual-buffers t)
+       (ivy-height 10)
+       (ivy-on-del-error-function nil)
+       (ivy-magic-slash-non-match-action 'ivy-magic-slash-non-match-create)
+       (ivy-count-format "【%d/%d】")
+       (ivy-wrap t)
+       :config
+       (defun counsel-goto-local-home ()
+	 "Go to the $HOME of the local machine."
+	 (interactive)
+	 (ivy--cd "~/")))
+   #+end_src
+
+** UI
+
+   #+begin_src elisp
+     (set-frame-font "Fira Code 10" nil t)
+
+     (use-package doom-themes
+       :custom-face
+       (cursor ((t (:background "BlanchedAlmond"))))
+       :config
+       ;; flashing mode-line on errors
+       (doom-themes-visual-bell-config)
+       ;; Corrects (and improves) org-mode's native fontification.
+       (doom-themes-org-config)
+       (load-theme 'doom-gruvbox t))
+
+     (use-package doom-modeline
+       :custom
+       ;; Don't compact font caches during GC. Windows Laggy Issue
+       (inhibit-compacting-font-caches t)
+       (doom-modeline-minor-modes nil)
+       (doom-modeline-icon t)
+       (doom-modeline-major-mode-color-icon t)
+       (doom-modeline-height 30)
+       :config
+       (doom-modeline-mode))
+
+     (use-package all-the-icons)
+
+     (use-package zoom
+       :config (zoom-mode 1))
+
+     (use-package dimmer
+       :config
+       (require 'dimmer)
+       (dimmer-configure-which-key)
+       (dimmer-configure-helm)
+       (dimmer-mode t))
+
+     (use-package focus)
+   #+end_src
+
+** Packages
+
+   #+begin_src elisp
+     (use-package avy
+       :defer t
+       :bind
+       (("C-z c" . avy-goto-char-timer))
+       :custom
+       (avy-timeout-seconds 0.3)
+       (avy-style 'pre)
+       :custom-face
+       (avy-lead-face ((t (:background "#51afef" :foreground "#870000" :weight bold)))))
+
+     (use-package smart-hungry-delete
+       :bind (("<backspace>" . smart-hungry-delete-backward-char)
+	      ("C-d" . smart-hungry-delete-forward-char)))
+
+     (use-package dpaste)
+
+     (use-package undo-tree
+       :defer t
+       :diminish undo-tree-mode
+       :init (global-undo-tree-mode)
+       :custom
+       (undo-tree-visualizer-diff t)
+       (undo-tree-visualizer-timestamps t))
+
+     (use-package expand-region
+       :bind ("C-=" . er/expand-region))
+
+     (use-package crux
+       :bind
+       ("C-k" . crux-smart-kill-line)
+       ("C-a" . crux-move-beginning-of-line))
+
+     (use-package which-key
+       :diminish which-key-mode
+       :config
+       (which-key-mode 1))
+
+     (use-package google-this
+       :config (global-set-key (kbd "C-x g") 'google-this-mode-submap))
+
+     (use-package dired
+       :ensure nil
+       :bind
+       (("C-x C-j" . dired-jump)
+	("C-x j" . dired-jump-other-window))
+       :custom
+       ;; Always delete and copy recursively
+       (dired-listing-switches "-lah")
+       (dired-recursive-deletes 'always)
+       (dired-recursive-copies 'always)
+       ;; Auto refresh Dired, but be quiet about it
+       (global-auto-revert-non-file-buffers t)
+       (auto-revert-verbose nil)
+       ;; Quickly copy/move file in Dired
+       (dired-dwim-target t)
+       ;; Move files to trash when deleting
+       (delete-by-moving-to-trash t)
+       ;; Load the newest version of a file
+       (load-prefer-newer t)
+       ;; Detect external file changes and auto refresh file
+       (auto-revert-use-notify nil)
+       (auto-revert-interval 3) ; Auto revert every 3 sec
+       :config
+       ;; Enable global auto-revert
+       (global-auto-revert-mode t))
+
+     (use-package winner
+       :ensure nil
+       :custom
+       (winner-boring-buffers
+	'("*Completions*"
+	  "*Compile-Log*"
+	  "*inferior-lisp*"
+	  "*Fuzzy Completions*"
+	  "*Apropos*"
+	  "*Help*"
+	  "*cvs*"
+	  "*Buffer List*"
+	  "*Ibuffer*"
+	  "*esh command on file*"))
+       :config
+       (winner-mode 1))
+
+     (use-package popup-kill-ring
+       :bind ("M-y" . popup-kill-ring))
+
+     (use-package ace-window
+       :bind ("C-x C-o" . ace-window))
+
+     (use-package sudo-edit
+       :commands (sudo-edit))
+
+     (use-package shell-here
+       :bind ("M-~" . shell-here))
+
+     (use-package diminish)
+
+     (use-package highlight-indent-guides
+       :if (display-graphic-p)
+       :diminish
+       :commands (highlight-indent-guides-mode)
+       :custom
+       (highlight-indent-guides-method 'bitmap)
+       (highlight-indent-guides-responsive 'top)
+       (highlight-indent-guides-delay 0)
+       (highlight-indent-guides-auto-character-face-perc 7)
+       (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+
+     (defun smart-electric-indent-mode ()
+       "Disable 'electric-indent-mode in certain buffers and enable otherwise."
+       (cond ((and (eq electric-indent-mode t)
+		   (member major-mode '(erc-mode text-mode)))
+	      (electric-indent-mode 0))
+	     ((eq electric-indent-mode nil) (electric-indent-mode 1))))
+     (add-hook 'post-command-hook #'smart-electric-indent-mode)
+
+     (use-package format-all
+       :bind ("C-c C-f" . format-all-buffer))
+
+     (use-package erc
+       :ensure nil
+       :init
+       ;; Prerequisite: Configure this to your IRC nickname
+       (defcustom my-irc-nick "Minall"
+	 "The nickname used to login into ERC"
+	 :type 'string)
+       (use-package erc-hl-nicks :defer t)
+       :custom-face
+       (erc-notice-face ((t (:foreground "#ababab"))))
+       :custom
+       (erc-autojoin-channels-alist '(("irc.libera.chat" "#emacs")))
+       (erc-user-full-name user-full-name)
+       (erc-track-exclude-types '("NICK" "PART" "MODE" "324" "329" "332" "333" "353" "477"))
+       (erc-server-coding-system '(utf-8 . utf-8))
+       (erc-interpret-mirc-color t)
+       (erc-kill-buffer-on-part t)
+       (erc-kill-queries-on-quit t)
+       (erc-kill-server-buffer-on-quit t)
+       (erc-autojoin-timing 'ident)
+       (erc-fill-function 'erc-fill-static)
+       (erc-fill-static-center 15)
+       (erc-lurker-threshold-time 43200)
+       (erc-server-reconnect-attempts 5)
+       (erc-server-reconnect-timeout 3)
+       (erc-prompt-for-password nil)
+       (erc-prompt-for-nickserv-password nil)
+       (erc-fill-column 100)
+       (erc-save-buffer-on-part t)
+       (erc-nick-uniquifier "_")
+       (erc-log-channels-directory (expand-file-name ".erc-logs" user-emacs-directory))
+       :bind
+       (("M-z i" . erc-start-or-switch)
+	("M-m i" . erc-start-or-switch)
+	("C-c C-b" . erc-switch-to-buffer)
+	(:map erc-mode-map
+	      ("M-RET" . newline)))
+       :hook
+       (ercn-notify . erc-notify)
+       :config
+       (make-directory (expand-file-name ".erc-logs" user-emacs-directory) t)
+       (add-to-list 'erc-modules 'notifications)
+       (erc-track-mode t)
+       (erc-services-mode 1)
+       (defun erc-start-or-switch ()
+	 "Start ERC or switch to ERC buffer if it has started already."
+	 (interactive)
+	 (if (get-buffer "irc.libera.chat:6697")
+	     (erc-track-switch-buffer 1)
+	   (erc-tls :server "irc.libera.chat" :port 6697 :nick my-irc-nick :full-name user-full-name)))
+
+       (defun erc-notify (nickname message)
+	 "Displays a notification message for ERC."
+	 (let* ((channel (buffer-name))
+		(nick (erc-hl-nicks-trim-irc-nick nickname))
+		(title (if (string-match-p (concat "^" nickname) channel)
+			   nick
+			 (concat nick " (" channel ")")))
+		(msg (s-trim (s-collapse-whitespace message))))
+	   (alert (concat nick ": " msg) :title title))))
+
+     (use-package eww
+       :ensure nil
+       :commands (eww)
+       :hook (eww-mode . (lambda ()
+			   "Rename EWW's buffer so sites open in new page."
+			   (rename-buffer "eww" t))))
+
+     (use-package centered-window
+       :config
+       (require 'centered-window-mode)
+       (centered-window-mode t))
+
+   #+end_src
+
+* Global Programming
+
+  #+begin_src elisp
+    (use-package magit
+      :bind (("C-M-g" . magit-status)))
+
+    (use-package projectile
+      :custom
+      (projectile-completion-system 'ivy)
+      :config (projectile-mode +1)
+      (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+      (add-to-list 'projectile-globally-ignored-directories "node_modules"))
+
+    (use-package verb)
+
+    (use-package npm)
+
+    (use-package yasnippet
+      :diminish yas-minor-mode
+      :init
+      (use-package yasnippet-snippets :after yasnippet)
+      :hook ((prog-mode LaTeX-mode org-mode) . yas-minor-mode)
+      :bind
+      (:map yas-minor-mode-map ("C-c C-n" . yas-expand-from-trigger-key))
+      (:map yas-keymap
+	    (("TAB" . smarter-yas-expand-next-field)
+	     ([(tab)] . smarter-yas-expand-next-field)))
+      :config
+      (yas-reload-all)
+      (defun smarter-yas-expand-next-field ()
+	"Try to `yas-expand' then `yas-next-field' at current cursor position."
+	(interactive)
+	(let ((old-point (point))
+	      (old-tick (buffer-chars-modified-tick)))
+	  (yas-expand)
+	  (when (and (eq old-point (point))
+		     (eq old-tick (buffer-chars-modified-tick)))
+	    (ignore-errors (yas-next-field))))))
+
+    (use-package company
+      :diminish company-mode
+      :hook ((prog-mode LaTeX-mode latex-mode ess-r-mode) . company-mode)
+      :bind
+      (:map company-active-map
+	    ([tab] . smarter-tab-to-complete)
+	    ("TAB" . smarter-tab-to-complete))
+      :custom
+      (company-minimum-prefix-length 1)
+      (company-tooltip-align-annotations t)
+      (company-require-match 'never)
+      ;; Don't use company in the following modes
+      (company-global-modes '(not shell-mode eaf-mode))
+      ;; Trigger completion immediately.
+      (company-idle-delay 0.5)
+      ;; Number the candidates (use M-1, M-2 etc to select completions).
+      (company-show-numbers t)
+      :config
+      (setq company-minimum-prefix-length 1)
+      (setq company-selection-wrap-around t)
+      (setq company-show-numbers t)
+      (global-company-mode 1)
+      (defun smarter-tab-to-complete ()
+	"Try to `org-cycle', `yas-expand', and `yas-next-field' at current cursor position.
+
+	    If all failed, try to complete the common part with `company-complete-common'"
+	(interactive)
+	(when yas-minor-mode
+	  (let ((old-point (point))
+		(old-tick (buffer-chars-modified-tick))
+		(func-list
+		 (if (equal major-mode 'org-mode) '(org-cycle yas-expand yas-next-field)
+		   '(yas-expand yas-next-field))))
+	    (catch 'func-suceed
+	      (dolist (func func-list)
+		(ignore-errors (call-interactively func))
+		(unless (and (eq old-point (point))
+			     (eq old-tick (buffer-chars-modified-tick)))
+		  (throw 'func-suceed t)))
+	      (company-complete-common))))))
+
+    (use-package company-box
+      :diminish
+      :defines company-box-icons-all-the-icons
+      :hook (company-mode . company-box-mode)
+      :custom
+      (company-box-backends-colors nil)
+      :config
+      (with-no-warnings
+	;; Prettify icons
+	(defun my-company-box-icons--elisp (candidate)
+	  (when (derived-mode-p 'emacs-lisp-mode)
+	    (let ((sym (intern candidate)))
+	      (cond ((fboundp sym) 'Function)
+		    ((featurep sym) 'Module)
+		    ((facep sym) 'Color)
+		    ((boundp sym) 'Variable)
+		    ((symbolp sym) 'Text)
+		    (t . nil)))))
+	(advice-add #'company-box-icons--elisp :override #'my-company-box-icons--elisp))
+
+      (when (and (display-graphic-p)
+		 (require 'all-the-icons nil t))
+	(declare-function all-the-icons-faicon 'all-the-icons)
+	(declare-function all-the-icons-material 'all-the-icons)
+	(declare-function all-the-icons-octicon 'all-the-icons)
+	(setq company-box-icons-all-the-icons
+	      `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.8 :v-adjust -0.15))
+		(Text . ,(all-the-icons-faicon "text-width" :height 0.8 :v-adjust -0.02))
+		(Method . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.02 :face 'all-the-icons-purple))
+		(Function . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.02 :face 'all-the-icons-purple))
+		(Constructor . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.02 :face 'all-the-icons-purple))
+		(Field . ,(all-the-icons-octicon "tag" :height 0.85 :v-adjust 0 :face 'all-the-icons-lblue))
+		(Variable . ,(all-the-icons-octicon "tag" :height 0.85 :v-adjust 0 :face 'all-the-icons-lblue))
+		(Class . ,(all-the-icons-material "settings_input_component" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-orange))
+		(Interface . ,(all-the-icons-material "share" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-lblue))
+		(Module . ,(all-the-icons-material "view_module" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-lblue))
+		(Property . ,(all-the-icons-faicon "wrench" :height 0.8 :v-adjust -0.02))
+		(Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.8 :v-adjust -0.15))
+		(Value . ,(all-the-icons-material "format_align_right" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-lblue))
+		(Enum . ,(all-the-icons-material "storage" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-orange))
+		(Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.8 :v-adjust -0.15))
+		(Snippet . ,(all-the-icons-material "format_align_center" :height 0.8 :v-adjust -0.15))
+		(Color . ,(all-the-icons-material "palette" :height 0.8 :v-adjust -0.15))
+		(File . ,(all-the-icons-faicon "file-o" :height 0.8 :v-adjust -0.02))
+		(Reference . ,(all-the-icons-material "collections_bookmark" :height 0.8 :v-adjust -0.15))
+		(Folder . ,(all-the-icons-faicon "folder-open" :height 0.8 :v-adjust -0.02))
+		(EnumMember . ,(all-the-icons-material "format_align_right" :height 0.8 :v-adjust -0.15))
+		(Constant . ,(all-the-icons-faicon "square-o" :height 0.8 :v-adjust -0.1))
+		(Struct . ,(all-the-icons-material "settings_input_component" :height 0.8 :v-adjust -0.15 :face 'all-the-icons-orange))
+		(Event . ,(all-the-icons-octicon "zap" :height 0.8 :v-adjust 0 :face 'all-the-icons-orange))
+		(Operator . ,(all-the-icons-material "control_point" :height 0.8 :v-adjust -0.15))
+		(TypeParameter . ,(all-the-icons-faicon "arrows" :height 0.8 :v-adjust -0.02))
+		(Template . ,(all-the-icons-material "format_align_left" :height 0.8 :v-adjust -0.15)))
+	      company-box-icons-alist 'company-box-icons-all-the-icons)))
+
+    (use-package flycheck
+      :defer t
+      :diminish
+      :hook (after-init . global-flycheck-mode)
+      :commands (flycheck-add-mode)
+      :custom
+      (flycheck-global-modes
+       '(not outline-mode diff-mode shell-mode eshell-mode term-mode))
+      (flycheck-emacs-lisp-load-path 'inherit)
+      (flycheck-indication-mode (if (display-graphic-p) 'right-fringe 'right-margin))
+      :init
+      (if (display-graphic-p)
+	  (use-package flycheck-posframe
+	    :custom-face
+	    (flycheck-posframe-face ((t (:foreground ,(face-foreground 'success)))))
+	    (flycheck-posframe-info-face ((t (:foreground ,(face-foreground 'success)))))
+	    :hook (flycheck-mode . flycheck-posframe-mode)
+	    :custom
+	    (flycheck-posframe-position 'window-bottom-left-corner)
+	    (flycheck-posframe-border-width 3)
+	    (flycheck-posframe-inhibit-functions
+	     '((lambda (&rest _) (bound-and-true-p company-backend)))))
+	(use-package flycheck-pos-tip
+	  :defines flycheck-pos-tip-timeout
+	  :hook (flycheck-mode . flycheck-pos-tip-mode)
+	  :custom (flycheck-pos-tip-timeout 30)))
+      :config
+      (use-package flycheck-popup-tip
+	:hook (flycheck-mode . flycheck-popup-tip-mode))
+      (when (fboundp 'define-fringe-bitmap)
+	(define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+	  [16 48 112 240 112 48 16] nil nil 'center))
+      (when (executable-find "vale")
+	(use-package flycheck-vale
+	  :config
+	  (flycheck-vale-setup)
+	  (flycheck-add-mode 'vale 'latex-mode))))
+  #+end_src
+
+* Language specific
+
+  #+begin_src elisp
+    (setq js-indent-level '2)
+    (add-hook 'js-mode-hook 'js-jsx-mode)
+
+    (add-hook 'org-mode-hook 'auto-fill-mode)
+
+    (use-package web-mode
+      :ensure t
+      :config
+      (require 'web-mode)
+      (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+      (add-to-list 'auto-mode-alist '("\\.vue?\\'" . web-mode))
+      (defun my-web-mode-hook ()
+	"Hooks for Web mode."
+	(setq web-mode-enable-auto-pairing t)
+	(setq web-mode-enable-css-colorization t)
+	(setq web-mode-enable-current-element-highlight t)
+	(setq web-mode-enable-current-column-highlight t)
+	)
+      (add-hook 'web-mode-hook  'my-web-mode-hook) )
+
+  #+end_src
