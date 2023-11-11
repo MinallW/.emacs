@@ -1,0 +1,545 @@
+#+title: Minall's Emacs Literate Config
+
+The good old' Emacs literate config, featuring Emacs Doom.
+
+* init.el
+
+The doom packages.
+
+#+begin_src elisp :tangle init.el
+;;; init.el -*- lexical-binding: t; -*-
+
+;; This file controls what Doom modules are enabled and what order they load
+;; in. Remember to run 'doom sync' after modifying it!
+
+;; NOTE Press 'SPC h d h' (or 'C-h d h' for non-vim users) to access Doom's
+;;      documentation. There you'll find a link to Doom's Module Index where all
+;;      of our modules are listed, including what flags they support.
+
+;; NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
+;;      'C-c c k' for non-vim users) to view its documentation. This works on
+;;      flags as well (those symbols that start with a plus).
+;;
+;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
+;;      directory (for easy access to its source code).
+
+(doom! :input
+       ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
+       ;;chinese
+       ;;japanese
+       ;;layout            ; auie,ctsrnm is the superior home row
+
+       :completion
+       company           ; the ultimate code completion backend
+       ;;helm              ; the *other* search engine for love and life
+       ;;ido               ; the other *other* search engine...
+       ;;ivy               ; a search engine for love and life
+       vertico           ; the search engine of the future
+
+       :ui
+       ;;deft              ; notational velocity for Emacs
+       doom              ; what makes DOOM look the way it does
+       doom-dashboard    ; a nifty splash screen for Emacs
+       ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
+       ;;(emoji +unicode)  ; 🙂
+       hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+       ;;hydra
+       ;;indent-guides     ; highlighted indent columns
+       ligatures         ; ligatures and symbols to make your code pretty again
+       ;;minimap           ; show a map of the code on the side
+       modeline          ; snazzy, Atom-inspired modeline, plus API
+       ;;nav-flash         ; blink cursor line after big motions
+       ;;neotree           ; a project drawer, like NERDTree for vim
+       ophints           ; highlight the region an operation acts on
+       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+       ;;tabs              ; a tab bar for Emacs
+       ;;treemacs          ; a project drawer, like neotree but cooler
+       ;;unicode           ; extended unicode support for various languages
+       (vc-gutter +pretty) ; vcs diff in the fringe
+       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       ;;window-select     ; visually switch windows
+       workspaces        ; tab emulation, persistence & separate workspaces
+       zen               ; distraction-free coding or writing
+
+       :editor
+       (evil +everywhere); come to the dark side, we have cookies
+       file-templates    ; auto-snippets for empty files
+       fold              ; (nigh) universal code folding
+       (format +onsave)  ; automated prettiness
+       ;;god               ; run Emacs commands without modifier keys
+       ;;lispy             ; vim for lisp, for people who don't like vim
+       ;;multiple-cursors  ; editing in many places at once
+       ;;objed             ; text object editing for the innocent
+       ;;parinfer          ; turn lisp into python, sort of
+       ;;rotate-text       ; cycle region at point between text candidates
+       snippets          ; my elves. They type so I don't have to
+       ;;word-wrap         ; soft wrapping with language-aware indent
+
+       :emacs
+       dired             ; making dired pretty [functional]
+       electric          ; smarter, keyword-based electric-indent
+       ;;ibuffer         ; interactive buffer management
+       undo              ; persistent, smarter undo for your inevitable mistakes
+       vc                ; version-control and Emacs, sitting in a tree
+
+       :term
+       eshell            ; the elisp shell that works everywhere
+       shell             ; simple shell REPL for Emacs
+       ;; term              ; basic terminal emulator for Emacs
+       vterm             ; the best terminal emulation in Emacs
+
+       :checkers
+       syntax              ; tasing you for every semicolon you forget
+       ;;(spell +flyspell) ; tasing you for misspelling mispelling
+       ;;grammar           ; tasing grammar mistake every you make
+
+       :tools
+       ansible
+       ;;biblio            ; Writes a PhD for you (citation needed)
+       ;;collab            ; buffers with friends
+       debugger          ; FIXME stepping through code, to help you add bugs
+       ;;direnv
+       (docker +lsp)
+       ;;editorconfig      ; let someone else argue about tabs vs spaces
+       ;;ein               ; tame Jupyter notebooks with emacs
+       (eval +overlay)     ; run code, run (also, repls)
+       ;;gist              ; interacting with github gists
+       lookup              ; navigate your code and its documentation
+       (lsp +peek)               ; M-x vscode
+       magit             ; a git porcelain for Emacs
+       ;;make              ; run make tasks from Emacs
+       ;; pass              ; password manager for nerds
+       ;;pdf               ; pdf enhancements
+       ;;prodigy           ; FIXME managing external services & code builders
+       rgb               ; creating color strings
+       ;;taskrunner        ; taskrunner for all your projects
+       ;;terraform         ; infrastructure as code
+       ;;tmux              ; an API for interacting with tmux
+       ;;tree-sitter       ; syntax and parsing, sitting in a tree...
+       ;;upload            ; map local to remote projects via ssh/ftp
+
+       :os
+       (:if IS-MAC macos)  ; improve compatibility with macOS
+       tty               ; improve the terminal Emacs experience
+
+       :lang
+       ;;agda
+                                        ; types of types of types of types...
+       ;;beancount         ; mind the GAAP
+       ;;(cc +lsp)         ; C > C++ == 1
+       ;;clojure           ; java with a lisp
+       ;;common-lisp       ; if you've seen one lisp, you've seen them all
+       ;;coq               ; proofs-as-programs
+       ;;crystal           ; ruby at the speed of c
+       ;;csharp            ; unity, .NET, and mono shenanigans
+       ;;data              ; config/data formats
+       ;;(dart +flutter)   ; paint ui and not much else
+       ;;dhall
+       ;;elixir            ; erlang done right
+       ;;elm               ; care for a cup of TEA?
+       emacs-lisp        ; drown in parentheses
+       ;;erlang            ; an elegant language for a more civilized age
+       ;;ess               ; emacs speaks statistics
+       ;;factor
+       ;;faust             ; dsp, but you get to keep your soul
+       ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
+       ;;fsharp            ; ML stands for Microsoft's Language
+       ;;fstar             ; (dependent) types and (monadic) effects and Z3
+       ;;gdscript          ; the language you waited for
+       ;;(go +lsp)         ; the hipster dialect
+       ;;(graphql +lsp)    ; Give queries a REST
+       ;;(haskell +lsp)    ; a language that's lazier than I am
+       ;;hy                ; readability of scheme w/ speed of python
+       ;;idris             ; a language you can depend on
+       (json +lsp)              ; At least it ain't XML
+       ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
+       (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
+       ;;julia             ; a better, faster MATLAB
+       ;;kotlin            ; a better, slicker Java(Script)
+       ;;latex             ; writing papers in Emacs has never been so fun
+       ;;lean              ; for folks with too much to prove
+       ledger            ; be audit you can be
+       ;;lua               ; one-based indices? one-based indices
+       markdown          ; writing docs for people to ignore
+       ;;nim               ; python + lisp at the speed of c
+       nix               ; I hereby declare "nix geht mehr!"
+       ;;ocaml             ; an objective camel
+       org               ; organize your plain life in plain text
+       ;; php               ; perl's insecure younger brother
+       ;;plantuml          ; diagrams for confusing people more
+       ;;purescript        ; javascript, but functional
+       ;; python            ; beautiful is better than ugly
+       ;;qt                ; the 'cutest' gui framework ever
+       ;;racket            ; a DSL for DSLs
+       ;;raku              ; the artist formerly known as perl6
+       rest              ; Emacs as a REST client
+       ;;rst               ; ReST in peace
+       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       ;;(rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       scala             ; java, but good
+       ;;(scheme +guile)   ; a fully conniving family of lisps
+       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       ;;sml
+       ;;solidity          ; do you need a blockchain? No.
+       ;;swift             ; who asked for emoji variables?
+       ;;terra             ; Earth and Moon in alignment for performance.
+       web               ; the tubes
+       (yaml +lsp)              ; JSON, but readable
+       ;;zig               ; C, but simpler
+
+       :email
+       ;;(mu4e +org +gmail)
+       ;;notmuch
+       ;;(wanderlust +gmail)
+
+       :app
+       ;;calendar
+       ;;emms
+       ;;everywhere        ; *leave* Emacs!? You must be joking
+       irc               ; how neckbeards socialize
+       ;;(rss +org)        ; emacs as an RSS reader
+       ;;twitter           ; twitter client https://twitter.com/vnought
+
+       :config
+       literate
+       (default +bindings +smartparens))
+#+end_src
+
+* packages.el
+
+#+begin_src elisp :tangle packages.el
+;; -*- no-byte-compile: t; -*-
+;;; $DOOMDIR/packages.el
+
+;; To install a package with Doom you must declare them here and run 'doom sync'
+;; on the command line, then restart Emacs for the changes to take effect -- or
+;; use 'M-x doom/reload'.
+
+
+;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
+;(package! some-package)
+
+;; To install a package directly from a remote git repo, you must specify a
+;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
+;; https://github.com/radian-software/straight.el#the-recipe-format
+;(package! another-package
+;  :recipe (:host github :repo "username/repo"))
+
+;; If the package you are trying to install does not contain a PACKAGENAME.el
+;; file, or is located in a subdirectory of the repo, you'll need to specify
+;; `:files' in the `:recipe':
+;(package! this-package
+;  :recipe (:host github :repo "username/repo"
+;           :files ("some-file.el" "src/lisp/*.el")))
+
+;; If you'd like to disable a package included with Doom, you can do so here
+;; with the `:disable' property:
+;(package! builtin-package :disable t)
+
+;; You can override the recipe of a built in package without having to specify
+;; all the properties for `:recipe'. These will inherit the rest of its recipe
+;; from Doom or MELPA/ELPA/Emacsmirror:
+;(package! builtin-package :recipe (:nonrecursive t))
+;(package! builtin-package-2 :recipe (:repo "myfork/package"))
+
+;; Specify a `:branch' to install a package from a particular branch or tag.
+;; This is required for some packages whose default branch isn't 'master' (which
+;; our package manager can't deal with; see radian-software/straight.el#279)
+;(package! builtin-package :recipe (:branch "develop"))
+
+;; Use `:pin' to specify a particular commit to install.
+;(package! builtin-package :pin "1a2b3c4d5e")
+
+
+;; Doom's packages are pinned to a specific commit and updated from release to
+;; release. The `unpin!' macro allows you to unpin single packages...
+;(unpin! pinned-package)
+;; ...or multiple packages
+;(unpin! pinned-package another-pinned-package)
+;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
+;(unpin! t)
+(package! ellama)
+(package! llm-refactoring
+  :recipe (:host github :repo "ahyatt/llm"))
+(package! auth-source-pass)
+(package! gnus-notify+)
+(package! restclient)
+(package! company-restclient)
+(package! ob-restclient)
+(package! org-modern)
+(package! rjsx-mode)
+(package! eterm-256color)
+(unpin! org-roam)
+(package! org-roam-ui)
+(package! org-mime)
+(unpin! evil-collection)
+(package! gnus-desktop-notify)
+(package! all-the-icons-gnus)
+(package! dpaste)
+#+end_src
+
+* .gnus.el
+
+#+begin_src elisp :tangle .gnus.el
+;;; .gnus.el --- GNUS Configuration -*- lexical-binding: t; -*-
+;;
+;; Copyright (C) 2023 Miguel Suarez
+;;
+;; Author: Miguel Suarez <suarezmiguelc@icloud.com>
+;; Maintainer: Miguel Suarez <suarezmiguelc@icloud.com>
+;; Created: October 10, 2023
+;; Modified: October 10, 2023
+;; Version: 0.0.1
+;; Keywords: Symbol’s value as variable is void: finder-known-keywords
+;; Homepage: https://github.com/MinallW/.gnus
+;; Package-Requires: ((emacs "24.3"))
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; Commentary:
+;;
+;;  GNUS Configuration
+;;
+;;; Code:
+;;; RSS Servers
+(setq gnus-select-method '(nnrss "https://feeds.feedburner.com/TheHackersNews"))
+
+;; Reading Mail
+(add-to-list 'gnus-secondary-select-methods
+             '(nnimap "imap.mail.me.com"
+                (nnimap-inbox "INBOX")
+                (nnimap-user "suarezmiguelc@icloud.com")
+                (nnimap-server-port "imaps")
+                ))
+
+(add-to-list 'gnus-secondary-select-methods
+             '(nnimap "imap.gmail.com"
+                (nnimap-inbox "INBOX")
+                (nnimap-user "suarezmiguelc23@gmail.com")
+                (nnimap-server-port "imaps")
+                ))
+
+;; Specify msmtp since OMG how can't one define different smtp servers in the library?
+(setq gnus-posting-styles
+      '((".*"
+         (signature "Miguel Suárez."))))
+
+;; Sending mail
+(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
+(require 'smtpmail-multi)
+
+(add-to-list 'smtpmail-multi-accounts
+             '(icloud . ("suarezmiguelc@icloud.com"
+                        "smtp.mail.me.com"
+                        587
+                        "suarezmiguelc@icloud.com"
+                        starttls nil nil nil)))
+
+(add-to-list 'smtpmail-multi-accounts
+             '(gmail . ("suarezmiguelc23@gmail.com"
+                        "smtp.gmail.com"
+                        587
+                        "suarezmiguelc23@gmail.com"
+                        starttls nil nil nil)))
+
+(add-to-list 'smtpmail-multi-associations '("suarezmiguelc@icloud.com" icloud))
+(add-to-list 'smtpmail-multi-associations '("suarezmiguelc23@gmail.com" gmail))
+
+(setq smtpmail-servers-requiring-authorization "\\.com")
+(setq auth-sources '("~/.authinfo.gpg"))
+
+(setq nnfolder-directory "/Users/Minall/Library/Mobile Documents/com~apple~CloudDocs/メール")
+
+;; More Sending configurations
+(require 'org-mime)
+(setq org-mime-library 'mml)
+(add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart)
+(setq gnus-dribble-ignore t)
+
+;; Notify and scan every 2 minutes
+;; Done by doom modeline
+;; (gnus-demon-add-handler 'gnus-demon-scan-news 2 t)
+;; (require 'gnus-desktop-notify)
+;; (setq gnus-desktop-notify-function 'gnus-desktop-notify-exec
+;;       gnus-desktop-notify-exec-program "growlnotify -a Emacs.app -m")
+;; (gnus-desktop-notify-mode)
+;; (gnus-demon-add-scanmail)
+
+
+(provide '.gnus)
+;;; .gnus.el ends here
+#+end_src
+
+* config.el
+
+** Some Basics
+
+#+begin_src elisp
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light))
+;; Easy on the eyes
+(setq doom-theme 'doom-gruvbox)
+(setq display-line-numbers-type 'visual)
+;; Some Globals
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
+(setq auth-sources '("~/.authinfo.gpg"))
+(require 'epa-file)
+(custom-set-variables '(epg-gpg-program  "/opt/homebrew/opt/gnupg@2.2/bin/gpg"))
+(epa-file-enable)
+(setq doom-modeline-buffer-encoding t)
+(setq doom-modeline-gnus t)
+(setq doom-modeline-time t)
+(setq doom-modeline-always-visible-segments '(gnus irc))
+(setq doom-modeline-gnus-timer 5)
+(global-subword-mode)
+
+;; Do not interrupt typing
+(setq company-idle-delay 0.7)
+#+end_src
+
+** Important Folders, change per machine
+
+Use the cloud provider local folder for sincronization.
+
+#+begin_src elisp
+(setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/org/")
+#+end_src
+
+** LLM
+
+Install ellama.
+
+#+begin_src elisp
+(after! ellama
+  (setq ellama-language "English")
+  (require 'llm-ollama)
+  (setq ellama-provider
+          (make-llm-ollama
+           :chat-model "llama2-uncensored" :embedding-model "llama2-uncensored")))
+#+end_src
+
+** Org-Mode configurations
+
+#+begin_src elisp
+(after! org-mode
+  (setq org-babel-default-header-args
+        '((:results . "output code replace")
+          (:noweb . "yes")
+          (:eval . "never-export")
+          (:exports . "both")))
+
+  (org-clock-persistence-insinuate)
+  (setq org-timestamp-formats '("%Y-%m-%d %a %H:%M" . "%Y-%m-%d %a %H:%M"))
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+    '(
+    (emacs-lisp . t)
+    (ledger . t)         ;this is the important one for this tutorial
+    (sh . t)
+    (js . t)
+    ))
+
+  (add-hook 'org-mode-hook 'turn-on-auto-fill)
+  (global-org-modern-mode)
+
+  (setq
+   ;; Edit settings
+   ;; org-auto-align-tags nil
+   ;; org-tags-column 0
+   org-log-done nil
+   org-catch-invisible-edits 'show-and-error
+   org-insert-heading-respect-content t
+   org-journal-file-type 'weekly
+
+   ;; Org styling, hide markup etc.
+   org-hide-emphasis-markers t
+   org-pretty-entities t
+   org-ellipsis "…"
+
+   ;; Agenda styling
+   org-agenda-block-separator ?─)
+
+  (setq org-startup-folded t)
+
+  (add-to-list 'org-src-lang-modes (cons "jsx" 'rjsx-mode))
+  (defun org-babel-noweb-wrap (&optional regexp)
+    "Return regexp matching a Noweb reference.
+
+   Match any reference, or only those matching REGEXP, if non-nil.
+
+   When matching, reference is stored in match group 1."
+
+    (rx-to-string
+     `(and (or "<<" "<<-")
+           (group
+            (not (or " " "\t" "\n"))
+            (? (*? any) (not (or " " "\t" "\n"))))
+           (or ">>" "->>")))))
+#+end_src
+
+#+RESULTS:
+
+** Gnus
+
+#+begin_src elisp
+(add-hook 'gnus-part-display-hook '+zen/toggle)
+(setq gnus-asynchronous t)
+#+end_src
+
+** IRC
+
+#+begin_src elisp
+(after! circe
+  (defun my-fetch-password (&rest params)
+    (require 'auth-source)
+    (let ((match (car (apply #'auth-source-search params))))
+      (if match
+          (let ((secret (plist-get match :secret)))
+            (if (functionp secret)
+                (funcall secret)
+              secret))
+        (error "Password not found for %S" params))))
+
+  (defun my-nickserv-password (server)
+    (my-fetch-password :user "Minall" :host "irc.libera.chat"))
+
+  (set-irc-server! "irc.libera.chat"
+    '(:tls t
+      :port 6697
+      :nick "Minall"
+      :sasl-password my-nickserver-password
+      :channels ("#emacs")))
+  (setq circe-reduce-lurker-spam t)
+  (require 'lui-autopaste)
+  (add-hook 'circe-channel-mode-hook 'enable-lui-autopaste)
+  (setq circe-format-say "{nick:-16s} {body}")
+  (load "lui-logging" nil t)
+  (enable-lui-logging-globally)
+  (setq lui-logging-directory '"/Users/Minall/Library/Mobile Documents/com~apple~CloudDocs/メール/IRC")
+  (setq circe-format-self-say "<{nick}> {body}")
+  (setq
+   lui-time-stamp-position 'right-margin
+   lui-time-stamp-format "%H:%M")
+
+  (add-hook 'lui-mode-hook 'my-circe-set-margin)
+  (defun my-circe-set-margin ()
+    (setq right-margin-width 5))
+
+  (setq
+   lui-time-stamp-position 'right-margin
+   lui-fill-type nil)
+
+  (add-hook 'lui-mode-hook 'my-lui-setup)
+  (defun my-lui-setup ()
+    (setq
+     fringes-outside-margins t
+     right-margin-width 5
+     word-wrap t
+     wrap-prefix "    "))
+
+  (setq lui-track-bar-behavior 'before-switch-to-buffer)
+  (enable-lui-track-bar)
+  )
+#+end_src
+
+**
