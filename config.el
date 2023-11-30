@@ -23,6 +23,8 @@
 
 (after! ellama
   (setq ellama-language "English")
+  (setq ellama-user-nick "みなる")
+  (setq ellama-assistant-nick "Eーらま")
   (require 'llm-ollama)
   (setq ellama-provider
           (make-llm-ollama
