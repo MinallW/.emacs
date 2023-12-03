@@ -42,7 +42,10 @@
 
 ;; Sending mail
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
-(require 'smtpmail-multi)
+(setq my-utils-file "smtpmail-multi.el")
+(load-file
+ (expand-file-name my-utils-file
+                   (file-name-directory (buffer-file-name))))
 
 (add-to-list 'smtpmail-multi-accounts
              '(icloud . ("suarezmiguelc@icloud.com"
