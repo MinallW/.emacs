@@ -28,9 +28,9 @@
   (require 'llm-ollama)
   (setq ellama-provider
           (make-llm-ollama
-           :chat-model "llama2-uncensored" :embedding-model "llama2-uncensored")))
+           :chat-model "codellama" :embedding-model "codellama")))
 
-(after! org-mode
+(after! org
   (setq org-babel-default-header-args
         '((:results . "output code replace")
           (:noweb . "yes")
@@ -114,7 +114,7 @@
   (setq circe-format-say "{nick:-16s} {body}")
   (load "lui-logging" nil t)
   (enable-lui-logging-globally)
-  (setq lui-logging-directory '"/Users/Minall/Library/Mobile Documents/com~apple~CloudDocs/メール/IRC")
+  (setq lui-logging-directory '"/Users/niguelalgelsuarezcalles/Library/Mobile Documents/com~apple~CloudDocs/メール/IRC")
   (setq circe-format-self-say "<{nick}> {body}")
   (setq
    lui-time-stamp-position 'right-margin

@@ -302,9 +302,8 @@ The doom packages.
 ;;
 ;;; Code:
 ;;; RSS Servers
-(setq gnus-select-method '(nnrss "https://feeds.feedburner.com/TheHackersNews"))
-
 ;; Reading Mail
+
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "imap.mail.me.com"
                 (nnimap-inbox "INBOX")
@@ -348,7 +347,7 @@ The doom packages.
 (setq smtpmail-servers-requiring-authorization "\\.com")
 (setq auth-sources '("~/.authinfo.gpg"))
 
-(setq nnfolder-directory "/Users/Minall/Library/Mobile Documents/com~apple~CloudDocs/メール")
+(setq nnfolder-directory "/Users/niguelalgelsuarezcalles/Library/Mobile Documents/com~apple~CloudDocs/メール")
 
 ;; More Sending configurations
 (require 'org-mime)
@@ -421,13 +420,13 @@ Install ellama.
   (require 'llm-ollama)
   (setq ellama-provider
           (make-llm-ollama
-           :chat-model "llama2-uncensored" :embedding-model "llama2-uncensored")))
+           :chat-model "codellama" :embedding-model "codellama")))
 #+end_src
 
 ** Org-Mode configurations
 
 #+begin_src elisp
-(after! org-mode
+(after! org
   (setq org-babel-default-header-args
         '((:results . "output code replace")
           (:noweb . "yes")
@@ -483,8 +482,6 @@ Install ellama.
            (or ">>" "->>")))))
 #+end_src
 
-#+RESULTS:
-
 ** Gnus
 
 #+begin_src elisp
@@ -521,7 +518,7 @@ Install ellama.
   (setq circe-format-say "{nick:-16s} {body}")
   (load "lui-logging" nil t)
   (enable-lui-logging-globally)
-  (setq lui-logging-directory '"/Users/Minall/Library/Mobile Documents/com~apple~CloudDocs/メール/IRC")
+  (setq lui-logging-directory '"/Users/niguelalgelsuarezcalles/Library/Mobile Documents/com~apple~CloudDocs/メール/IRC")
   (setq circe-format-self-say "<{nick}> {body}")
   (setq
    lui-time-stamp-position 'right-margin
@@ -548,4 +545,3 @@ Install ellama.
   )
 #+end_src
 
-**

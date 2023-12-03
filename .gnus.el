@@ -19,9 +19,8 @@
 ;;
 ;;; Code:
 ;;; RSS Servers
-(setq gnus-select-method '(nnrss "https://feeds.feedburner.com/TheHackersNews"))
-
 ;; Reading Mail
+
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "imap.mail.me.com"
                 (nnimap-inbox "INBOX")
@@ -65,7 +64,7 @@
 (setq smtpmail-servers-requiring-authorization "\\.com")
 (setq auth-sources '("~/.authinfo.gpg"))
 
-(setq nnfolder-directory "/Users/Minall/Library/Mobile Documents/com~apple~CloudDocs/メール")
+(setq nnfolder-directory "/Users/niguelalgelsuarezcalles/Library/Mobile Documents/com~apple~CloudDocs/メール")
 
 ;; More Sending configurations
 (require 'org-mime)
