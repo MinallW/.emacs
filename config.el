@@ -5,10 +5,13 @@
 (setq display-line-numbers-type 'visual)
 ;; Some Globals
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . js-jsx-mode))
-(setq auth-sources '("~/.authinfo.gpg"))
+(setq auth-sources '("~/.authinfo"))
 (require 'epa-file)
-(custom-set-variables '(epg-gpg-program  "/opt/homebrew/opt/gnupg@2.2/bin/gpg"))
+(custom-set-variables '(epg-gpg-program  "~/.nix-profile/bin/gpg"))
 (epa-file-enable)
+;; Fix macos gnupg bug
+
+(fset 'epg-wait-for-status 'ignore)
 (setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-gnus t)
 (setq doom-modeline-time t)
@@ -88,26 +91,24 @@
 (add-hook 'gnus-part-display-hook '+zen/toggle)
 (setq gnus-asynchronous t)
 
-(after! circe
-  (defun my-fetch-password (&rest params)
-    (require 'auth-source)
-    (let ((match (car (apply #'auth-source-search params))))
-      (if match
-          (let ((secret (plist-get match :secret)))
-            (if (functionp secret)
-                (funcall secret)
-              secret))
-        (error "Password not found for %S" params))))
+(defun my-fetch-password (&rest params)
+  (require 'auth-source)
+  (let ((match (car (apply 'auth-source-search params))))
+    (if match
+        (let ((secret (plist-get match :secret)))
+          (if (functionp secret)
+              (funcall secret)
+            secret))
+      (error "Password not found for %S" params))))
 
-  (defun my-nickserv-password (server)
-    (my-fetch-password :user "Minall" :host "irc.libera.chat"))
+(defun my-nickserv-password (server)
+  (my-fetch-password :user "Minall" :host "irc.libera.chat"))
 
-  (set-irc-server! "irc.libera.chat"
-    '(:tls t
-      :port 6697
-      :nick "Minall"
-      :sasl-password my-nickserver-password
-      :channels ("#emacs")))
+(setq circe-network-options
+      '(("Libera Chat"
+         :nick "Minall"
+         :nickserv-password my-nickserv-password)))
+
   (setq circe-reduce-lurker-spam t)
   (require 'lui-autopaste)
   (add-hook 'circe-channel-mode-hook 'enable-lui-autopaste)
@@ -138,4 +139,3 @@
 
   (setq lui-track-bar-behavior 'before-switch-to-buffer)
   (enable-lui-track-bar)
-  )
