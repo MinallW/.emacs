@@ -66,3 +66,4 @@
 (package! gnus-desktop-notify)
 (package! all-the-icons-gnus)
 (package! dpaste)
+(package! direnv)

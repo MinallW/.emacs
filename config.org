@@ -276,6 +276,7 @@ The doom packages.
 (package! gnus-desktop-notify)
 (package! all-the-icons-gnus)
 (package! dpaste)
+(package! direnv)
 #+end_src
 
 * .gnus.el
@@ -344,6 +345,9 @@ The doom packages.
 (add-to-list 'smtpmail-multi-associations '("suarezmiguelc@icloud.com" icloud))
 (add-to-list 'smtpmail-multi-associations '("suarezmiguelc23@gmail.com" gmail))
 
+(setq smtpmail-debug-info t)
+(setq smtpmail-debug-verb t)
+
 (setq smtpmail-servers-requiring-authorization "\\.com")
 (setq auth-sources '("~/.authinfo"))
 
@@ -401,6 +405,10 @@ Remember to change the org-directory according to the system, for Windows and WS
 
 ;; Do not interrupt typing
 (setq company-idle-delay 0.7)
+
+(display-time-mode)
+;; Updating the environment
+(direnv-mode)
 #+end_src
 
 ** Important Folders, change per machine
@@ -409,6 +417,7 @@ Use the cloud provider local folder for sincronization.
 
 #+begin_src elisp
 (setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/org/")
+(setq org-agenda-files (directory-files-recursively "~/Library/Mobile Documents/com~apple~CloudDocs/org/roam" "\\.org$"))
 #+end_src
 
 ** LLM
@@ -543,4 +552,20 @@ Install ellama.
 
   (setq lui-track-bar-behavior 'before-switch-to-buffer)
   (enable-lui-track-bar)
+#+end_src
+** Agenda
+
+Eliminate name junk from org-roam
+
+#+begin_src elisp
+(setq org-agenda-prefix-format '((agenda . "%?-12t% s")
+                                 (todo . "%-12':c")
+                                 (tags . "%-12:c")
+                                 (search . "%-12:c")))
+#+end_src
+
+* Cool commands
+
+#+begin_src shell :tangle no
+security add-internet-password -a miguelangel.suarezcalles@moveecar.com -l smtp.gmail.com -p 587 -s smtp.gmail.com -w "password" -U
 #+end_src

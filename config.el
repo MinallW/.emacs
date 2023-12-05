@@ -22,7 +22,12 @@
 ;; Do not interrupt typing
 (setq company-idle-delay 0.7)
 
+(display-time-mode)
+;; Updating the environment
+(direnv-mode)
+
 (setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/org/")
+(setq org-agenda-files (directory-files-recursively "~/Library/Mobile Documents/com~apple~CloudDocs/org/roam" "\\.org$"))
 
 (after! ellama
   (setq ellama-language "English")
@@ -139,3 +144,8 @@
 
   (setq lui-track-bar-behavior 'before-switch-to-buffer)
   (enable-lui-track-bar)
+
+(setq org-agenda-prefix-format '((agenda . "%?-12t% s")
+                                 (todo . "%-12':c")
+                                 (tags . "%-12:c")
+                                 (search . "%-12:c")))

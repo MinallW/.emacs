@@ -236,7 +236,7 @@ instead."
                 (progn (message "Trying %S account... " account)
                        (funcall 'smtpmail-send-it)
                        (setq notsent nil))
-              (error (message "Failed to send mail via %S account" account)
+              (error (message "Failed to send mail via %S account, error is: %s" account err)
                      (setq notsent t)))
             (unless notsent
               (message "Successfully sent message via %S account" account))

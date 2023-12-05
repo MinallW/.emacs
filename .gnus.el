@@ -23,17 +23,17 @@
 
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "imap.mail.me.com"
-               (nnimap-inbox "INBOX")
-               (nnimap-user "suarezmiguelc@icloud.com")
-               (nnimap-server-port "imaps")
-               ))
+                (nnimap-inbox "INBOX")
+                (nnimap-user "suarezmiguelc@icloud.com")
+                (nnimap-server-port "imaps")
+                ))
 
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "imap.gmail.com"
-               (nnimap-inbox "INBOX")
-               (nnimap-user "suarezmiguelc23@gmail.com")
-               (nnimap-server-port "imaps")
-               ))
+                (nnimap-inbox "INBOX")
+                (nnimap-user "suarezmiguelc23@gmail.com")
+                (nnimap-server-port "imaps")
+                ))
 
 ;; Specify msmtp since OMG how can't one define different smtp servers in the library?
 (setq gnus-posting-styles
@@ -42,17 +42,14 @@
 
 ;; Sending mail
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
-(setq my-utils-file "smtpmail-multi.el")
-(load-file
- (expand-file-name my-utils-file
-                   (file-name-directory (buffer-file-name))))
+(require 'smtpmail-multi)
 
 (add-to-list 'smtpmail-multi-accounts
              '(icloud . ("suarezmiguelc@icloud.com"
-                         "smtp.mail.me.com"
-                         587
-                         "suarezmiguelc@icloud.com"
-                         starttls nil nil nil)))
+                        "smtp.mail.me.com"
+                        587
+                        "suarezmiguelc@icloud.com"
+                        starttls nil nil nil)))
 
 (add-to-list 'smtpmail-multi-accounts
              '(gmail . ("suarezmiguelc23@gmail.com"
@@ -64,7 +61,11 @@
 (add-to-list 'smtpmail-multi-associations '("suarezmiguelc@icloud.com" icloud))
 (add-to-list 'smtpmail-multi-associations '("suarezmiguelc23@gmail.com" gmail))
 
+(setq smtpmail-debug-info t)
+(setq smtpmail-debug-verb t)
+
 (setq smtpmail-servers-requiring-authorization "\\.com")
+(setq auth-sources '("~/.authinfo"))
 
 (setq nnfolder-directory "/Users/niguelalgelsuarezcalles/Library/Mobile Documents/com~apple~CloudDocs/メール")
 
