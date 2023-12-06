@@ -25,6 +25,7 @@
 (display-time-mode)
 ;; Updating the environment
 (direnv-mode)
+(server-start)
 
 (setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/org/")
 (setq org-agenda-files (directory-files-recursively "~/Library/Mobile Documents/com~apple~CloudDocs/org/roam" "\\.org$"))

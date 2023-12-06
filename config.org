@@ -303,56 +303,58 @@ The doom packages.
 ;;
 ;;; Code:
 ;;; RSS Servers
-;; Reading Mail
+;; Both IMAP and SMTP configuration require Application Passwords
+;;
+;; IMAP, Fetching Mail
 
 (setq gnus-select-method
       '(nnimap "Icloud Personal"
         (nnimap-address "imap.mail.me.com")
         (nnimap-inbox "INBOX")
         (nnimap-user "suarezmiguelc@icloud.com")
-        (nnimap-server-port "imaps")
+        (nnimap-server-port "imaps")))
+
+(setq my-email-accounts
+      '(
+        ("Gmail Personal"
+         (nnimap-address "imap.gmail.com")
+         (nnimap-inbox "INBOX")
+         (nnimap-user "suarezmiguelc23@gmail.com")
+         (nnimap-server-port "imaps"))
+
+        ("Gmail Immune"
+         (nnimap-address "imap.gmail.com")
+         (nnimap-inbox "INBOX")
+         (nnimap-user "miguel.suarez.cso@immune.institute")
+         (nnimap-server-port "imaps"))
+
+        ("Moveecar"
+         (nnimap-address "imap.gmail.com")
+         (nnimap-inbox "INBOX")
+         (nnimap-user "miguelangel.suarezcalles@moveecar.com")
+         (nnimap-server-port "imaps"))
+
+        ("DimaticaSoftware"
+         (nnimap-address "imap.gmail.com")
+         (nnimap-inbox "INBOX")
+         (nnimap-user "masuarezcalles@dimaticasoftware.com")
+         (nnimap-server-port "imaps"))
         ))
 
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "Gmail Personal"
-               (nnimap-address "imap.gmail.com")
-               (nnimap-inbox "INBOX")
-               (nnimap-user "suarezmiguelc23@gmail.com")
-               (nnimap-server-port "imaps")
-               ))
+(cl-loop for (account-name . account-details) in my-email-accounts
+         do (add-to-list 'gnus-secondary-select-methods
+                         `(nnimap ,account-name ,@account-details)))
 
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "Gmail Immune"
-               (nnimap-address "imap.gmail.com")
-               (nnimap-inbox "INBOX")
-               (nnimap-user "miguel.suarez.cso@immune.institute")
-               (nnimap-server-port "imaps")
-               ))
+;; SMTP, Sending Mail
 
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "Moveecar"
-               (nnimap-address "imap.gmail.com")
-               (nnimap-inbox "INBOX")
-               (nnimap-user "miguelangel.suarezcalles@moveecar.com")
-               (nnimap-server-port "imaps")
-               ))
-
-
-
-(add-to-list 'gnus-secondary-select-methods
-             '(nnimap "DimaticaSoftware"
-               (nnimap-address "imap.gmail.com")
-               (nnimap-inbox "INBOX")
-               (nnimap-user "masuarezcalles@dimaticasoftware.com")
-               (nnimap-server-port "imaps")
-               ))
-
-;; Specify msmtp since OMG how can't one define different smtp servers in the library?
 (setq send-mail-function (quote smtpmail-multi-send-it))
 (setq message-send-mail-function (quote smtpmail-multi-send-it))
+
 ;; Gmail headers
 (setq gnus-extra-headers
       '(To Newsgroups X-GM-LABELS))
+
+;; Allows us to Reply with the email where we received said message
 
 (setq gnus-posting-styles
       '((".*"
@@ -365,54 +367,56 @@ The doom packages.
          (address "suarezmiguelc23@gmail.com"))
         ((header "to" "miguel.suarez.cso@immune.institute")
          (address "miguel.suarez.cso@immune.institute"))
-
         ((header "to" "miguelangel.suarezcalles@moveecar.com")
          (address "miguelangel.suarezcalles@moveecar.com"))
         ))
 
-;; Sending mail
+;; SMTP-multi for separating allowing SMTP separation
+
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (require 'smtpmail-multi)
 
-(add-to-list 'smtpmail-multi-accounts
-             '(icloud . ("suarezmiguelc@icloud.com"
-                         "smtp.mail.me.com"
-                         587
-                         "suarezmiguelc@icloud.com"
-                         starttls nil nil nil)))
+(setq my-smtp-accounts
+      '(
+        (icloud . ("suarezmiguelc@icloud.com"
+                   "smtp.mail.me.com"
+                   587
+                   "suarezmiguelc@icloud.com"
+                   starttls nil nil nil))
 
-(add-to-list 'smtpmail-multi-accounts
-             '(gmailPersonal . ("suarezmiguelc23@gmail.com"
-                                "smtp.gmail.com"
-                                587
-                                "suarezmiguelc23@gmail.com"
-                                starttls nil nil nil)))
+        (gmailPersonal . ("suarezmiguelc23@gmail.com"
+                          "smtp.gmail.com"
+                          587
+                          "suarezmiguelc23@gmail.com"
+                          starttls nil nil nil))
 
-(add-to-list 'smtpmail-multi-accounts
-             '(gmailImmune . ("miguel.suarez.cso@immune.institute"
-                              "smtp.gmail.com"
-                              587
-                              "miguel.suarez.cso@immune.institute"
-                              starttls nil nil nil)))
+        (gmailImmune . ("miguel.suarez.cso@immune.institute"
+                        "smtp.gmail.com"
+                        587
+                        "miguel.suarez.cso@immune.institute"
+                        starttls nil nil nil))
 
+        (gmailDimatica . ("masuarezcalles@dimaticasoftware.com"
+                          "smtp.gmail.com"
+                          587
+                          starttls nil nil nil))
 
-(add-to-list 'smtpmail-multi-accounts
-             '(gmailDimatica . ("masuarezcalles@dimaticasoftware.com"
-                                "smtp.gmail.com"
-                                587
-                                starttls nil nil nil)))
+        (gmailMoveecar . ("miguelangel.suarezcalles@moveecar.com"
+                          "smtp.gmail.com"
+                          587
+                          starttls nil nil nil))))
 
-(add-to-list 'smtpmail-multi-accounts
-             '(gmailMoveecar . ("miguelangel.suarezcalles@moveecar.com"
-                                "smtp.gmail.com"
-                                587
-                                starttls nil nil nil)))
+(cl-loop for (account-name . account-details) in my-smtp-accounts
+         do (add-to-list 'smtpmail-multi-accounts
+                         `(,account-name . ,account-details)))
 
-(add-to-list 'smtpmail-multi-associations '("masuarezcalles@dimaticasoftware.com" gmailDimatica))
-(add-to-list 'smtpmail-multi-associations '("miguelangel.suarezcalles@moveecar.com" gmailMoveecar))
-(add-to-list 'smtpmail-multi-associations '("suarezmiguelc@icloud.com" icloud))
-(add-to-list 'smtpmail-multi-associations '("suarezmiguelc23@gmail.com" gmailPersonal))
-(add-to-list 'smtpmail-multi-associations '("miguel.suarez.cso@immune.institute" gmailImmune))
+(cl-loop for (email-address . account-name) in '(("masuarezcalles@dimaticasoftware.com" . gmailDimatica)
+                                                 ("miguelangel.suarezcalles@moveecar.com" . gmailMoveecar)
+                                                 ("suarezmiguelc@icloud.com" . icloud)
+                                                 ("suarezmiguelc23@gmail.com" . gmailPersonal)
+                                                 ("miguel.suarez.cso@immune.institute" . gmailImmune))
+         do (add-to-list 'smtpmail-multi-associations `(,email-address ,account-name)))
+
 
 (setq smtpmail-servers-requiring-authorization "\\.com")
 
@@ -476,6 +480,7 @@ Remember to change the org-directory according to the system, for Windows and WS
 (display-time-mode)
 ;; Updating the environment
 (direnv-mode)
+(server-start)
 #+end_src
 
 ** Important Folders, change per machine
